@@ -1,0 +1,822 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars">
+	<sys:Double x:Key="RibbonPageThemeKey_HeaderTextIndent">10.0</sys:Double>
+    <Thickness x:Key="RibbonPageThemeKey_SelectedPagePopupBorderMargin">0,20,0,20</Thickness>
+	<Style x:Key="RibbonPageThemeKey_SelectedPageContainerStyle" TargetType="ContentControl">
+		<Setter Property="Margin" Value="4,3,4,6" />
+	</Style>
+	<Style x:Key="RibbonPageThemeKey_CaptionContentContainerStyle" TargetType="ContentControl">
+        <Setter Property="Margin" Value="5,0,5,0" />
+	</Style>
+	<Style x:Key="RibbonPageThemeKey_HighlightedCaptionContentContainerStyle" TargetType="ContentControl">
+		<Setter Property="Margin" Value="5,0,5,0" />
+	</Style>
+	<Thickness x:Key="RibbonPageThemeKey_CaptionControlMargin">-3,2,-3,-1</Thickness>
+	<!-- Office2007Blue: Ribbon Header Template and Triggers -->
+	<ControlTemplate x:Key="RibbonPageThemeKey_CaptionBackgroundTemplate" TargetType="dxr:RibbonCheckedBorderControl">
+		<Grid Background="Transparent">
+			<Grid x:Name="PART_NormalUnchecked" Visibility="Visible" Opacity="0" />
+            <Grid x:Name="PART_NormalChecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="1,3,2,1" Grid.ColumnSpan="2" Grid.Column="1" Width="Auto" CornerRadius="0,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+							<GradientStop Color="#FFE7AEC7" Offset="0" />
+							<GradientStop Color="#FFF2B5CF" Offset="1" />
+							<GradientStop Color="#FFEBB0CA" Offset="0.5" />
+							<GradientStop Color="#FFF2B5CF" Offset="0.5" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" Background="#FFE38DB2" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" Background="#FFFFD0FB" CornerRadius="3,3,0,0">
+						<Border UseLayoutRounding="True" Margin="1,0" CornerRadius="2,2,0,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFF8E8EF" Offset="0" />
+									<GradientStop Color="#FFFFF5F9" Offset="1" />
+								</LinearGradientBrush>
+							</Border.Background>
+							<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFFFF1F7" Offset="0" />
+										<GradientStop Color="#FFF6E0EA" Offset="1" />
+										<GradientStop Color="#FFFFF7FA" Offset="0.25" />
+										<GradientStop Color="#FFFEECF4" Offset="0.25" />
+									</LinearGradientBrush>
+								</Border.Background>
+							</Border>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <Grid x:Name="PART_HoverUnchecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="0,-1,0,1" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFEDAEA" Offset="0.5" />
+							<GradientStop Color="#3FFEDAEA" Offset="1" />
+							<GradientStop Color="#26FEDAEA" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" Background="#FFE899BB" CornerRadius="3,3,0,0">
+						<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="2,2,0,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFFFEFF6" Offset="0.75" />
+									<GradientStop Color="#FFFFC7E0" Offset="1" />
+								</LinearGradientBrush>
+							</Border.Background>
+							<Grid Margin="1,1,1,0">
+								<Border UseLayoutRounding="True" Margin="0" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFE0E4E6" Offset="0.5" />
+											<GradientStop Color="#FF99E3D0" Offset="1" />
+											<GradientStop Color="#FFFED2E5" />
+											<GradientStop Color="#FFDDDDD0" Offset="0.5" />
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path Stretch="Fill" StrokeLineJoin="Round" Stroke="{x:Null}" Data="F1 M 369,270L 404,270C 404,270 405,285 387,285C 369,285 369,271 369,270 Z " HorizontalAlignment="Stretch" Margin="2,0" VerticalAlignment="Top" Height="18" Opacity="0.245">
+									<Path.Fill>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+											<GradientStop Color="#FFFED2E5" Offset="0.5" />
+											<GradientStop Color="#3EFED2E5" Offset="1" />
+										</LinearGradientBrush>
+									</Path.Fill>
+								</Path>
+							</Grid>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <Grid x:Name="PART_HoverChecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="2,3,2,0" Grid.ColumnSpan="3" Grid.Column="0" Width="Auto" CornerRadius="4,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+							<GradientStop Color="#3F60F9CC" Offset="0" />
+							<GradientStop Color="#BF60F9CC" Offset="0.75" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#3F60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" Margin="0,0,0,0" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8AD7BC" Offset="0" />
+							<GradientStop Color="#FF60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="3,3,0,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFC6F8EC" Offset="0" />
+								<GradientStop Color="#FFBDFFFF" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="2,2,0,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFC6F8ED" Offset="0" />
+									<GradientStop Color="#FFFFF5F9" Offset="0.15" />
+								</LinearGradientBrush>
+							</Border.Background>
+							<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFFFF1F7" Offset="0" />
+										<GradientStop Color="#FFF6E0EA" Offset="1" />
+										<GradientStop Color="#FFFFF7FA" Offset="0.25" />
+										<GradientStop Color="#FFFEECF4" Offset="0.25" />
+									</LinearGradientBrush>
+								</Border.Background>
+							</Border>
+						</Border>
+					</Border>
+				</Border>
+				<ContentPresenter />
+			</Grid>
+			<Grid x:Name="PART_PressedChecked" Visibility="Visible" Opacity="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="4" />
+                </Grid.ColumnDefinitions>
+                <Border UseLayoutRounding="True" Margin="1,3,2,1" Grid.ColumnSpan="2" Grid.Column="1" Width="Auto" CornerRadius="0,4,0,0" HorizontalAlignment="Stretch">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FFE7AEC7" Offset="0" />
+                            <GradientStop Color="#FFF2B5CF" Offset="1" />
+                            <GradientStop Color="#FFEBB0CA" Offset="0.5" />
+                            <GradientStop Color="#FFF2B5CF" Offset="0.5" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Border UseLayoutRounding="True" Background="#FFE38DB2" CornerRadius="4,4,0,0" Grid.Column="1">
+                    <Border UseLayoutRounding="True" Margin="1,1,1,0" Background="#FFFFD0FB" CornerRadius="3,3,0,0">
+                        <Border UseLayoutRounding="True" Margin="1,0" CornerRadius="2,2,0,0">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF8E8EF" Offset="0" />
+                                    <GradientStop Color="#FFFFF5F9" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFFF1F7" Offset="0" />
+                                        <GradientStop Color="#FFF6E0EA" Offset="1" />
+                                        <GradientStop Color="#FFFFF7FA" Offset="0.25" />
+                                        <GradientStop Color="#FFFEECF4" Offset="0.25" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                        </Border>
+                    </Border>
+                </Border>
+            </Grid>
+            <Grid x:Name="PART_Focused" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="2,3,2,0" Grid.ColumnSpan="3" Grid.Column="0" Width="Auto" CornerRadius="4,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+							<GradientStop Color="#3F60F9CC" Offset="0" />
+							<GradientStop Color="#BF60F9CC" Offset="0.75" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#3F60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" Margin="0,0,0,0" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8AD7BC" Offset="0" />
+							<GradientStop Color="#FF60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="3,3,0,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFC6F8EC" Offset="0" />
+								<GradientStop Color="#FFBDFFFF" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="2,2,0,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFC6F8ED" Offset="0" />
+									<GradientStop Color="#FFFFF5F9" Offset="0.15" />
+								</LinearGradientBrush>
+							</Border.Background>
+							<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFFFF1F7" Offset="0" />
+										<GradientStop Color="#FFF6E0EA" Offset="1" />
+										<GradientStop Color="#FFFFF7FA" Offset="0.25" />
+										<GradientStop Color="#FFFEECF4" Offset="0.25" />
+									</LinearGradientBrush>
+								</Border.Background>
+							</Border>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStateGroup">
+                    <VisualState x:Name="NormalUnchecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_NormalUnchecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="NormalChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_NormalChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="HoverUnchecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_HoverUnchecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="HoverChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_HoverChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="PressedChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_PressedChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_Focused" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+	</ControlTemplate>
+	<!-- Office2007Blue: Ribbon Page Button Separator Template -->
+	<ControlTemplate x:Key="RibbonPageThemeKey_SeparatorTemplate">
+		<Rectangle Stretch="Fill" Width="1">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#66cb7499" Offset="0" />
+					<GradientStop Color="#ffcb7499" Offset="1" />
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RibbonPageThemeKey_RightRepeatButtonTemplate" TargetType="RepeatButton">
+		<Grid Margin="-2,-3,-3,-2" Width="12" UseLayoutRounding="True">
+			<Grid x:Name="PART_Normal">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="0,3,3,0">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFE38DB2" Offset="0" />
+							<GradientStop Color="#FFDBA9C5" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="0,2,2,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="0,1,1,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFF6E2EB" Offset="0" />
+									<GradientStop Color="#FFFEE3F4" Offset="1" />
+									<GradientStop Color="#FFF0D2DF" Offset="0.25" />
+									<GradientStop Color="#FFEDC7D8" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Grid x:Name="PART_MouseOver" Opacity="0">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="0,3,3,0">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFE38DB2" Offset="0" />
+							<GradientStop Color="#FFDBA9C5" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="0,2,2,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="1,0,0,0" CornerRadius="0,2,2,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFe4fdfd" Offset="0" />
+									<GradientStop Color="#FFacffeb" Offset="1" />
+									<GradientStop Color="#FF9fffe7" Offset="0.25" />
+									<GradientStop Color="#FF69ffd8" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Grid x:Name="PART_Pressed" Opacity="0">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="0,3,3,0">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF548b76" Offset="0" />
+							<GradientStop Color="#FF60c59b" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="0,2,2,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="1,0,0,0" CornerRadius="0,1,1,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FF61c69b" Offset="0" />
+									<GradientStop Color="#FF70ffc4" Offset="1" />
+									<GradientStop Color="#FF66dca9" Offset="0.5" />
+									<GradientStop Color="#FF69eeb4" Offset="0.5" />
+									<GradientStop Color="#FF69eeb4" Offset="0.25" />
+									<GradientStop Color="#FF40ffa1" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Path UseLayoutRounding="True" Stretch="Fill" Fill="#FF680F31" Data="F1 M 102,14L 102,19L 104.55,16.4505L 102,14 Z " HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="3" Height="6" />
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RibbonPageThemeKey_LeftRepeatButtonTemplate" TargetType="RepeatButton">
+		<Grid Margin="-3,-3,-2,-2" Width="12" UseLayoutRounding="True">
+			<Grid x:Name="PART_Normal">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="3,0,0,3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFE38DB2" Offset="0" />
+							<GradientStop Color="#FFDBA9C5" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="2,0,0,2">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="1,0,0,1">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFF6E2EB" Offset="0" />
+									<GradientStop Color="#FFFEE3F4" Offset="1" />
+									<GradientStop Color="#FFF0D2DF" Offset="0.25" />
+									<GradientStop Color="#FFEDC7D8" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Grid x:Name="PART_MouseOver" Opacity="0">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="3,0,0,3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFE38DB2" Offset="0" />
+							<GradientStop Color="#FFDBA9C5" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="2,0,0,2">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="0,0,1,0" CornerRadius="2,0,0,2">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFe4fdfd" Offset="0" />
+									<GradientStop Color="#FFacffeb" Offset="1" />
+									<GradientStop Color="#FF9fffe7" Offset="0.25" />
+									<GradientStop Color="#FF69ffd8" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Grid x:Name="PART_Pressed" Opacity="0">
+				<Border UseLayoutRounding="True" BorderThickness="0" CornerRadius="3,0,0,3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF548b76" Offset="0" />
+							<GradientStop Color="#FF60c59b" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" BorderThickness="0" Margin="1" CornerRadius="2,0,0,2">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#FFF7CDEB" Offset="0" />
+								<GradientStop Color="#FFFBF3F6" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" BorderThickness="0" Margin="0,0,1,0" CornerRadius="1,0,0,1">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FF61c69b" Offset="0" />
+									<GradientStop Color="#FF70ffc4" Offset="1" />
+									<GradientStop Color="#FF66dca9" Offset="0.5" />
+									<GradientStop Color="#FF69eeb4" Offset="0.5" />
+									<GradientStop Color="#FF69eeb4" Offset="0.25" />
+									<GradientStop Color="#FF40ffa1" Offset="0.25" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+			<Path UseLayoutRounding="True" Stretch="Fill" Fill="#FF680F31" Data="F1 M 91,15L 90.9999,21L 88,18L 91,15 Z " HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="3" Height="6" />
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Normal" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MouseOver" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Pressed" Storyboard.TargetProperty="Opacity">
+                                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+	</ControlTemplate>
+	<!--Background-->
+	<ControlTemplate x:Key="RibbonPageThemeKey_BackgroundTemplate" TargetType="ContentControl">
+		<ContentPresenter />
+	</ControlTemplate>
+	<dx:ColorOverlayConverter x:Key="colorOverlayConverter" />
+	<ControlTemplate x:Key="RibbonPageThemeKey_HighlightedCaptionBackgroundTemplate" TargetType="Control">
+		<Grid Margin="2,0,2,0" Background="Transparent">
+            <Grid x:Name="PART_NormalUnchecked" Visibility="Visible" Opacity="0" />
+            <Grid x:Name="PART_NormalChecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="1,3,2,1" Grid.ColumnSpan="2" Grid.Column="1" Width="Auto" CornerRadius="0,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+							<GradientStop Color="#FFE7AEC7" Offset="0" />
+							<GradientStop Color="#FFF2B5CF" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FF999999}" Offset="1" />
+							<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFB0B0B0}" Offset="0" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Grid>
+						<Border UseLayoutRounding="True" Margin="1,1,1,0" Background="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD0D0D0}" CornerRadius="3,3,0,0">
+							<Border UseLayoutRounding="True" Margin="1,0" CornerRadius="2,2,0,0">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFF5F5F5}" Offset="0" />
+										<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD7D7D7}" Offset="1" />
+									</LinearGradientBrush>
+								</Border.Background>
+								<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFF0F0F0}" Offset="0" />
+											<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+							</Border>
+						</Border>
+					</Grid>
+				</Border>
+			</Grid>
+            <Grid x:Name="PART_HoverUnchecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="0,-1,0,1" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFEDAEA" Offset="0.5" />
+							<GradientStop Color="#3FFEDAEA" Offset="1" />
+							<GradientStop Color="#26FEDAEA" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="3,3,0,0" Background="#FFC0C7D0">
+                        <Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="2,2,0,0">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFFFEFF6" Offset="0.75" />
+									<GradientStop Color="#FFFFC7E0" Offset="1" />
+								</LinearGradientBrush>
+							</Border.Background>
+							<Grid Margin="1,1,1,0">
+								<Border UseLayoutRounding="True" Margin="0" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFc5c5c5}" Offset="1" />
+											<GradientStop Color="#FFD2E5FE" Offset="0" />
+											<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFe4e4e4}" Offset="0.5" />
+											<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFdbdbdb}" Offset="0.5" />
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path Stretch="Fill" StrokeLineJoin="Round" Stroke="{x:Null}" Data="F1 M 369,270L 404,270C 404,270 405,285 387,285C 369,285 369,271 369,270 Z " HorizontalAlignment="Stretch" Margin="2,0" VerticalAlignment="Top" Height="18" Opacity="0.245">
+									<Path.Fill>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+											<GradientStop Color="#FFFED2E5" Offset="0.5" />
+											<GradientStop Color="#3EFED2E5" Offset="1" />
+										</LinearGradientBrush>
+									</Path.Fill>
+								</Path>
+							</Grid>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <Grid x:Name="PART_HoverChecked" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="2,3,2,0" Grid.ColumnSpan="3" Grid.Column="0" Width="Auto" CornerRadius="4,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+							<GradientStop Color="#3F60F9CC" Offset="0" />
+							<GradientStop Color="#BF60F9CC" Offset="0.75" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#3F60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" Margin="0,0,0,0" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8AD7BC" Offset="0" />
+							<GradientStop Color="#FF60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="3,3,0,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFC6F8EC" Offset="0" />
+								<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="2,2,0,0" Height="Auto">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFFFFFFF}" Offset="0" />
+									<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <Grid x:Name="PART_PressedChecked" Visibility="Visible" Opacity="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="4" />
+                </Grid.ColumnDefinitions>
+                <Border UseLayoutRounding="True" Margin="1,3,2,1" Grid.ColumnSpan="2" Grid.Column="1" Width="Auto" CornerRadius="0,4,0,0" HorizontalAlignment="Stretch">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FFE7AEC7" Offset="0" />
+                            <GradientStop Color="#FFF2B5CF" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Border UseLayoutRounding="True" CornerRadius="4,4,0,0" Grid.Column="1">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FF999999}" Offset="1" />
+                            <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFB0B0B0}" Offset="0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Border UseLayoutRounding="True" Margin="1,1,1,0" Background="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD0D0D0}" CornerRadius="3,3,0,0">
+                            <Border UseLayoutRounding="True" Margin="1,0" CornerRadius="2,2,0,0">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFF5F5F5}" Offset="0" />
+                                        <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD7D7D7}" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="1,1,0,0" Height="Auto">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFF0F0F0}" Offset="0" />
+                                            <GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Border>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid x:Name="PART_Focused" Visibility="Visible" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="4" />
+				</Grid.ColumnDefinitions>
+				<Border UseLayoutRounding="True" Margin="2,3,2,0" Grid.ColumnSpan="3" Grid.Column="0" Width="Auto" CornerRadius="4,4,0,0" HorizontalAlignment="Stretch">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+							<GradientStop Color="#3F60F9CC" Offset="0" />
+							<GradientStop Color="#BF60F9CC" Offset="0.75" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#7F60F9CC" Offset="0.5" />
+							<GradientStop Color="#3F60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border UseLayoutRounding="True" Margin="0,0,0,0" BorderThickness="0" CornerRadius="4,4,0,0" Grid.Column="1">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8AD7BC" Offset="0" />
+							<GradientStop Color="#FF60F9CC" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Border UseLayoutRounding="True" Margin="1,1,1,0" BorderThickness="0" CornerRadius="3,3,0,0">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFC6F8EC" Offset="0" />
+								<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+							</LinearGradientBrush>
+						</Border.Background>
+						<Border UseLayoutRounding="True" Margin="1,1,1,-1" BorderThickness="0" CornerRadius="2,2,0,0" Height="Auto">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFFFFFFF}" Offset="0" />
+									<GradientStop Color="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource colorOverlayConverter}, ConverterParameter=#FFD5D5D5}" Offset="1" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+					</Border>
+				</Border>
+			</Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStateGroup">
+                    <VisualState x:Name="NormalUnchecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_NormalUnchecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="NormalChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_NormalChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="HoverUnchecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_HoverUnchecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="HoverChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_HoverChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="PressedChecked">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_PressedChecked" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0" Storyboard.TargetName="PART_Focused" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+	</ControlTemplate>
+</ResourceDictionary>

@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomTheme.v10.2;component/DevExpress.Xpf.Ribbon/CustomTheme/QuickAccessToolbar.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ItemsPanelTemplate x:Key="QuickAccessToolbarThemeKey_RibbonToolbarItemsPanelTemplate">
+        <dxr:RibbonQuickAccessToolbarPanel />
+    </ItemsPanelTemplate>
+    <ControlTemplate x:Key="QuickAccessToolbarThemeKey_RibbonToolbarTemplate" TargetType="dxr:RibbonQuickAccessToolbarControl">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            
+            <ContentControl x:Name="PART_LeftContentControl" Grid.Column="0" Template="{StaticResource QuickAccessToolbarThemeKey_RibbonToolbarLeftContentTemplate}">
+                <Grid>
+                    <ContentControl x:Name="PART_OriginItemContainer" IsHitTestVisible="False" Width="1" Opacity="0" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
+                    <ItemsPresenter />
+                </Grid>
+            </ContentControl>
+            
+            <ContentControl x:Name="PART_RightContentControl" Grid.Column="1" Template="{StaticResource QuickAccessToolbarThemeKey_RibbonToolbarRightContentTemplate}" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <dxr:RibbonCheckedBorderControl x:Name="PART_ToolbarCustomizationButton" Template="{StaticResource QuickAccessToolbarThemeKey_RibbonToolbarCustomizationButtonTemplate}" UseAppFocusValue="True" />
+                    <dxr:RibbonCheckedBorderControl x:Name="PART_ToolbarDropDownButton" Template="{StaticResource QuickAccessToolbarThemeKey_RibbonToolbarDropDownButtonTemplate}" UseAppFocusValue="True" />
+                </Grid>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+
+</ResourceDictionary>

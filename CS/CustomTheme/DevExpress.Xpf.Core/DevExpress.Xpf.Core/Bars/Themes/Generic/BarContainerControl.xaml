@@ -1,0 +1,29 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxbc="http://schemas.devexpress.com/winfx/2008/xaml/bars/internal" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomTheme.v10.2;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Bars/Themes/CustomTheme/BarContainerControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <ItemsPanelTemplate x:Key="BarContainerControlThemeKey_ItemsPanelTemplate">
+        <dxb:BarContainerControlPanel />
+    </ItemsPanelTemplate>
+
+    <ControlTemplate x:Key="BarContainerControlThemeKey_EmptyBorderTemplate" TargetType="ContentControl">
+        <dxc:DXContentPresenter Content="{TemplateBinding Content}" />
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="BarContainerControlThemeKey_ControlTemplate" TargetType="dxb:BarContainerControl">
+        <ContentControl x:Name="PART_Border" Template="{StaticResource BarContainerControlThemeKey_EmptyBorderTemplate}">
+            <Grid>
+                <ContentControl x:Name="PART_Background" Template="{StaticResource BarContainerControlThemeKey_BackgroundTemplate}" />
+                <ItemsPresenter x:Name="PART_ItemsPresenter" />
+            </Grid>
+            
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="Common">
+                    <VisualState x:Name="ShowBorder" />
+                    <VisualState x:Name="HideBorder" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </ContentControl>
+    </ControlTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomTheme.v10.2;component/DevExpress.Xpf.Ribbon/CustomTheme/RibbonPageGroup.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <dxc:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" />
+    <dxc:BooleanToVisibilityConverter x:Key="invertBoolToVisibilityConverter" Invert="True" />
+    
+    <ItemsPanelTemplate x:Key="RibbonPageGroupThemeKey_PanelTemplate">
+        <dxr:RibbonPageGroupItemsPanel />
+    </ItemsPanelTemplate>
+
+
+    <Style x:Key="RibbonPageGroupThemeKey_PopupControlStyle" TargetType="ContentControl">
+        <Setter Property="Template" Value="{StaticResource RibbonPageGroupThemeKey_PopupControlTemplate}" />
+    </Style>
+    <ControlTemplate x:Key="RibbonPageGroupThemeKey_ControlTemplate" TargetType="dxr:RibbonPageGroupControl">
+        <Grid>
+            <ContentControl x:Name="PART_Border" Template="{TemplateBinding ActualBorderTemplate}" DataContext="{Binding Path=PageGroup.Page.PageCategory.Color, RelativeSource={RelativeSource Mode=TemplatedParent}}" Visibility="{Binding Path=IsCollapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource invertBoolToVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ItemsPresenter x:Name="PART_ItemsPresenter" Grid.Row="0" Style="{StaticResource RibbonPageGroupThemeKey_ContentStyle}" />
+                    <ContentControl x:Name="PART_Caption" Template="{TemplateBinding ActualCaptionBorderTemplate}" Grid.Row="1" DataContext="{Binding Path=PageGroup.Page.PageCategory.Color, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Grid.ColumnSpan="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="16" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ContentControl Grid.Column="1" Grid.ColumnSpan="1" VerticalAlignment="Center" Style="{Binding Path=PageGroup.Page.PageCategory.Ribbon.GroupCaptionTextStyle, RelativeSource={RelativeSource Mode=TemplatedParent}}" Content="{Binding Path=PageGroup.Caption, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" />
+                            </Grid>
+                            <dxr:RibbonCheckedBorderControl x:Name="PART_CaptionButton" Grid.Column="1" UseAppFocusValue="True" Style="{StaticResource RibbonPageGroupThemeKey_CaptionButtonStyle}" Template="{StaticResource RibbonPageGroupThemeKey_CaptionButtonTemplate}" Visibility="{Binding Path=PageGroup.ShowCaptionButton, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter = {StaticResource boolToVisibilityConverter}, ConverterParameter=HiddenOnFalse}" />
+                        </Grid>
+                    </ContentControl>
+                </Grid>
+            </ContentControl>
+
+            <Grid x:Name="PART_PopupButton" Visibility="{Binding Path=IsCollapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}">
+                <dxb:ItemBorderControl x:Name="PART_PopupButtonBorder" Template="{TemplateBinding ActualPopupButtonBorderTemplate}" DataContext="{Binding Path=PageGroup.Page.PageCategory.Color, RelativeSource={RelativeSource Mode=TemplatedParent}}" HideBorderSide="None" />
+                <dxc:Items2Panel Style="{StaticResource RibbonPageGroupThemeKey_LayoutPanelStyle}">
+                    <dxc:Items2Panel.Content1>
+                        <ContentControl Template="{TemplateBinding ActualPopupButtonGlyphBorderTemplate}" DataContext="{Binding Path=PageGroup.Page.PageCategory.Color, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Top">
+                            <dxc:PixelSnapper VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Grid.Row="0" UseLayoutRounding="True" Source="{Binding Path=PageGroup.Glyph, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </dxc:PixelSnapper>
+                        </ContentControl>
+                    </dxc:Items2Panel.Content1>
+                    <dxc:Items2Panel.Content2>
+                        <dxb:TextSplitterControl Content="{Binding Path=PageGroup.Caption, RelativeSource={RelativeSource TemplatedParent}}" SplitMethod="BySpace" IsSelected="{TemplateBinding IsMouseOver}" Style="{StaticResource RibbonPageGroupThemeKey_TextSplitterStyle}" NormalArrowTemplate="{StaticResource RibbonPageGroupThemeKey_NormalArrowTemplateInTextSplitter}" SelectedArrowTemplate="{StaticResource RibbonPageGroupThemeKey_SelectedArrowTemplateInTextSplitter}" NormalTextStyle="{StaticResource RibbonPageGroupThemeKey_NormalTextStyleInTextSplitter}" SelectedTextStyle="{StaticResource RibbonPageGroupThemeKey_SelectedTextStyleInTextSplitter}" BottomSideArrowContainerStyle="{StaticResource RibbonPageGroupThemeKey_BottomSideArrowContainerStyleInTextSplitter}" RightSideArrowContainerStyle="{StaticResource RibbonPageGroupThemeKey_RightSideArrowContainerStyleInTextSplitter}" IsArrowVisible="True" />
+                    </dxc:Items2Panel.Content2>
+                </dxc:Items2Panel>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

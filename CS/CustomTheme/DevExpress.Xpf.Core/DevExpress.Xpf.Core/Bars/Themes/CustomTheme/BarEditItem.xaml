@@ -1,0 +1,161 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/internal" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <Thickness x:Key="BarEditItemThemeKey_InMenuClientPadding">0,1,0,1</Thickness>
+    
+    <Style x:Key="BarEditItemThemeKey_DisabledEditStyle" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_DisabledEditStyleInMainMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_DisabledEditStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_DisabledEditStyleInStatusBar" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_DisabledContentStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    
+    <Style x:Key="BarEditItemThemeKey_HotEditStyle" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_HotEditStyleInMainMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_HotEditStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_HotEditStyleInStatusBar" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_HotContentStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    
+    <Style x:Key="BarEditItemThemeKey_NormalEditStyle" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_NormalEditStyleInMainMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_NormalEditStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_NormalEditStyleInStatusBar" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    
+    <Style x:Key="BarEditItemThemeKey_PressedEditStyle" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_PressedEditStyleInMainMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_PressedEditStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_PressedEditStyleInStatusBar" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#FF000000 " />
+    </Style>
+    
+    <Style x:Key="BarEditItemThemeKey_NormalContentStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_PressedContentStyleInMenu" TargetType="ContentControl">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyle" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="0" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="0,0,0,0" />
+        <Setter Property="VerticalPadding" Value="6,0,6,0" />
+        <Setter Property="HorizontalPadding" Value="0,0,6,0" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInMenu" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="0" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="0,0,0,0" />
+        <Setter Property="VerticalPadding" Value="0,0,0,0" />
+        <Setter Property="HorizontalPadding" Value="0,0,0,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInMainMenu" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="0" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="0,0,0,0" />
+        <Setter Property="VerticalPadding" Value="6,0,6,0" />
+        <Setter Property="HorizontalPadding" Value="0,0,6,0" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInStatusBar" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="0" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="0,0,0,0" />
+        <Setter Property="VerticalPadding" Value="6,0,6,0" />
+        <Setter Property="HorizontalPadding" Value="0,0,6,0" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInRibbonToolbar" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="1" />
+        <Setter Property="VerticalIndent" Value="1" />
+        <Setter Property="Content1Padding" Value="3" />
+        <Setter Property="Content2Padding" Value="3" />
+        <Setter Property="VerticalPadding" Value="3" />
+        <Setter Property="HorizontalPadding" Value="3" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInRibbonStatusBarLeft" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="3" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="6,0,6,0" />
+        <Setter Property="VerticalPadding" Value="6,0,6,4" />
+        <Setter Property="HorizontalPadding" Value="0,0,6,0" />
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInRibbonStatusBarRight" TargetType="dxc:Items2Panel">
+        <Setter Property="HorizontalIndent" Value="0" />
+        <Setter Property="VerticalIndent" Value="3" />
+        <Setter Property="Content1Padding" Value="0,0,0,0" />
+        <Setter Property="Content2Padding" Value="6,0,6,0" />
+        <Setter Property="VerticalPadding" Value="6,0,6,4" />
+        <Setter Property="HorizontalPadding" Value="0,0,6,0" />
+    </Style>
+
+    <Style x:Key="BarEditItemThemeKey_DisabledContentStyleInButtonGroup" TargetType="ContentControl">
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_HotContentStyleInButtonGroup" TargetType="ContentControl">
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_LayoutPanelStyleInButtonGroup" TargetType="dxc:Items2Panel">
+    </Style>
+    
+    
+    
+    <Style x:Key="BarEditItemThemeKey_NormalContentStyleInButtonGroup" TargetType="ContentControl">
+    </Style>
+    <Style x:Key="BarEditItemThemeKey_PressedContentStyleInButtonGroup" TargetType="ContentControl">
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <dxc:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" />
+
+    <ControlTemplate x:Key="InRibbonGalleryThemeKey_GalleryTemplate" TargetType="dxb:GalleryControl">
+        <ContentControl Template="{StaticResource InRibbonGalleryThemeKey_GalleryBackgroundTemplate}">
+            <Grid>
+                <ToggleButton x:Name="PART_Caption" Visibility="Collapsed" />
+                <ContentControl Template="{StaticResource InRibbonGalleryThemeKey_GalleryGroupsBackgroundTemplate}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <dxb:GalleryGroupsViewer Name="PART_ScrollHost" Grid.Column="0">
+                            <dxb:GalleryItemGroupsControl Name="PART_Groups" ItemsSource="{Binding Path=Gallery.Groups, RelativeSource = {RelativeSource Mode=TemplatedParent}}" ItemBorderTemplate="{StaticResource InRibbonGalleryThemeKey_GalleryItemBorderTemplate}" ItemGlyphBorderTemplate="{StaticResource InRibbonGalleryThemeKey_GalleryItemGlyphBorderTemplate}" />
+                        </dxb:GalleryGroupsViewer>
+                        <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="1" Visibility="Collapsed" Orientation="Vertical" />
+                    </Grid>
+                </ContentControl>
+            </Grid>
+        </ContentControl>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="InRibbonGalleryThemeKey_Template" TargetType="dxr:RibbonGalleryBarItemLinkControl">
+        <ContentControl Template="{StaticResource InRibbonGalleryThemeKey_BorderTemplate}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <dxb:GalleryControl Name="PART_GalleryControl" Grid.Column="0" PlacementTarget="Ribbon" Gallery="{Binding Path=GalleryLink.Item.Gallery, RelativeSource={RelativeSource Mode=TemplatedParent}}" Template="{StaticResource InRibbonGalleryThemeKey_GalleryTemplate}" HorizontalAlignment="Center" DefaultIsGroupCaptionVisible="False" DesiredColCount="{Binding Path=GalleryLink.Item.Gallery.ColCount, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button Name="PART_Up" Grid.Row="0" Template="{StaticResource InRibbonGalleryThemeKey_UpButtonTemplate}" />
+                    <Button Name="PART_Down" Grid.Row="1" Template="{StaticResource InRibbonGalleryThemeKey_DownButtonTemplate}" />
+                    <dxr:RibbonCheckedBorderControl x:Name="PART_DropDown" Grid.Row="2" UseAppFocusValue="True" Template="{StaticResource InRibbonGalleryThemeKey_DropDownButtonTemplate}" />
+                </Grid>
+            </Grid>           
+        </ContentControl>
+    </ControlTemplate>
+</ResourceDictionary>

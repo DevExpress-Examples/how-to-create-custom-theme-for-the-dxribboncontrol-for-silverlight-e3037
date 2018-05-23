@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <ControlTemplate x:Key="BarButtonGroupThemeKey_BorderTemplate" TargetType="dxb:ItemBorderControl">
+    </ControlTemplate>
+
+    <!-- Office2007Blue: Bar Button Group Border -->
+    <ControlTemplate x:Key="BarButtonGroupThemeKey_SeparatorTemplate" TargetType="dxb:ItemBorderControl">
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="BarButtonGroupThemeKey_ResourceHolderTemplateInPageGroup" TargetType="ContentControl">
+        <ContentPresenter Content="{TemplateBinding Content}" />
+    </ControlTemplate>  
+
+</ResourceDictionary>

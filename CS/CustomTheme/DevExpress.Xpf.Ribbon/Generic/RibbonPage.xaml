@@ -1,0 +1,88 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomTheme.v10.2;component/DevExpress.Xpf.Ribbon/CustomTheme/RibbonPage.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <dxc:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" Invert="False" />
+    <dxc:BooleanToVisibilityConverter x:Key="invertBoolToVisibilityConverter" Invert="True" />
+    <ControlTemplate x:Key="RibbonPageThemeKey_CaptionTemplate" TargetType="dxr:RibbonPageCaptionControl">        
+        <Grid>
+            <dxr:RibbonCheckedBorderControl Template="{StaticResource RibbonPageThemeKey_CaptionBackgroundTemplate}" UseAppFocusValue="True" AppFocusValue="{Binding Path=(dxr:RibbonNavigationManager.IsSelected), RelativeSource={RelativeSource TemplatedParent}}" MergeCheckedStates="True" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=Page.PageCategory.IsDefault, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" />
+            <dxr:RibbonCheckedBorderControl Template="{StaticResource RibbonPageThemeKey_HighlightedCaptionBackgroundTemplate}" AppFocusValue="{Binding Path=IsFocused, RelativeSource={RelativeSource Mode=TemplatedParent}}" UseAppFocusValue="True" MergeCheckedStates="True" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}}" DataContext="{Binding Path=Page.PageCategory.Color, RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=Page.PageCategory.IsDefault, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource invertBoolToVisibilityConverter}}" />
+            <ContentControl x:Name="PART_ContentContainer" Style="{Binding Path=ActualContentContainerStyle, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                <Grid>
+                    <dxb:ContentViewport x:Name="PART_Content" KeepPositiveLeftContentPosition="True" VerticalContentAlignment="Center" Grid.Column="0" dxc:FrameworkElementHelper.IsClipped="True">
+                        <ContentControl x:Name="UserContent" Content="{Binding Path=Page.Caption, RelativeSource={RelativeSource Mode=TemplatedParent}}" ContentTemplate="{Binding Path=Page.CaptionTemplate, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{Binding ActualTextStyle, RelativeSource={RelativeSource TemplatedParent}}" IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </dxb:ContentViewport>
+                </Grid>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="RibbonPageThemeKey_PageHeaderTemplate" TargetType="dxr:RibbonPageHeaderControl">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <dxr:RibbonPageCaptionControl x:Name="PART_CaptionControl" Grid.Column="0" Page="{TemplateBinding Page}" Margin="{StaticResource RibbonPageThemeKey_CaptionControlMargin}" MinWidth="{Binding Path=ActualPageCaptionMinWidth, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Bottom" />
+            <ContentControl x:Name="PART_Separator" Grid.Column="1" Opacity="{TemplateBinding SeparatorOpacity}" HorizontalAlignment="Right" Template="{StaticResource RibbonPageThemeKey_SeparatorTemplate}" />
+        </Grid>
+    </ControlTemplate>
+
+    <ItemsPanelTemplate x:Key="RibbonPageThemeKey_SelectedPagePanelTemplate">
+        <!--<dxr:RibbonPageItemsPanel IsItemsHost="True"/>-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </ItemsPanelTemplate>
+    
+    <Style x:Key="RibbonPageThemeKey_RightRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource RibbonPageThemeKey_RightRepeatButtonTemplate}" />                    
+    </Style>
+
+    <Style x:Key="RibbonPageThemeKey_LeftRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource RibbonPageThemeKey_LeftRepeatButtonTemplate}" />
+    </Style>
+    <ControlTemplate x:Key="RibbonPageThemeKey_SelectedPageTemplate" TargetType="dxr:RibbonSelectedPageControl">       
+        <Grid>
+            <ContentControl Template="{TemplateBinding ActualBorderTemplate}" DataContext="{Binding Path=SelectedPage.PageCategory.Color, RelativeSource={RelativeSource TemplatedParent}}" />
+            <ContentControl Style="{StaticResource RibbonPageThemeKey_SelectedPageContainerStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <ScrollViewer x:Name="PART_ScrollViewer" Grid.Column="1" BorderThickness="0" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Disabled" Padding="0">
+                        <Grid VerticalAlignment="Stretch">
+                            <ContentControl x:Name="PART_OriginPageGroupContainer" Opacity="0" Width="0" />
+                            <ItemsPresenter x:Name="PART_ItemsPresenter" />
+                        </Grid>
+                    </ScrollViewer>
+                    
+                    <RepeatButton x:Name="PART_LeftRepeatButton" Visibility="Collapsed" Grid.Column="0" Style="{StaticResource RibbonPageThemeKey_LeftRepeatButtonStyle}" />                    
+                    <RepeatButton x:Name="PART_RightRepeatButton" Visibility="Collapsed" Grid.Column="2" Style="{StaticResource RibbonPageThemeKey_RightRepeatButtonStyle}" />
+                </Grid>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="RibbonThemeKey_PageGroupsControlTemplate" TargetType="dxr:RibbonPageGroupsControl">
+        <ItemsPresenter Visibility="{Binding Path=Page.IsSelected, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" />
+    </ControlTemplate>
+    <ItemsPanelTemplate x:Key="RibbonThemeKey_PageGroupsControlItemsPanelTemplate">
+        <dxr:RibbonPageItemsPanel />
+    </ItemsPanelTemplate>
+    <ControlTemplate x:Key="RibbonThemeKey_PagesControlTemplate" TargetType="dxr:RibbonPagesControl">
+        <ItemsPresenter />
+    </ControlTemplate>
+    <ItemsPanelTemplate x:Key="RibbonThemeKey_PagesControlItemsPanelTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </ItemsPanelTemplate>
+</ResourceDictionary>

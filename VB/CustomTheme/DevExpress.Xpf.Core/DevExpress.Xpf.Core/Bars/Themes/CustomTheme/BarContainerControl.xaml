@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    
+	<ControlTemplate x:Key="BarContainerControlThemeKey_BorderTemplate" TargetType="ContentControl">
+		<Border Width="Auto" Height="Auto" Padding="1,1,1,1" CornerRadius="3,3,3,3" Background="#FFAECAEE " UseLayoutRounding="True">
+			<Border x:Name="Border" UseLayoutRounding="True" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" CornerRadius="2,2,2,2" Padding="4,4,4,4" Width="Auto" Height="Auto" Background="#FFBFDBFF ">
+				<ContentPresenter Content="{TemplateBinding Content}" />
+			</Border>
+		</Border>
+	</ControlTemplate>
+	<ControlTemplate x:Key="BarContainerControlThemeKey_BackgroundTemplate" TargetType="ContentControl">
+		<Border x:Name="Background" Background="#FFBFDBFF " UseLayoutRounding="True">
+			<ContentPresenter Content="{TemplateBinding Content}" />
+		</Border>
+	</ControlTemplate>
+</ResourceDictionary>

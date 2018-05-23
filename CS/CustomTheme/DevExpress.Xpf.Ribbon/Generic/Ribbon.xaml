@@ -1,0 +1,196 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxct="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxrt="http://schemas.devexpress.com/winfx/2008/xaml/ribbon/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomTheme.v10.2;component/DevExpress.Xpf.Ribbon/CustomTheme/Ribbon.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <dxc:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" Invert="False" />
+    <dxc:BooleanToVisibilityConverter x:Key="invertBoolToVisibilityConverter" Invert="True" />
+
+    <ControlTemplate x:Key="RibbonPageHeaderLinksControlThemeKey_ControlTemplate" TargetType="dxr:RibbonPageHeaderLinksControl">
+        <ItemsPresenter />
+    </ControlTemplate>
+    <ItemsPanelTemplate x:Key="RibbonPageHeaderLinksControlThemeKey_PanelTemplate">
+        <StackPanel Orientation="Horizontal" />
+    </ItemsPanelTemplate>
+    <Style x:Key="RibbonThemeKey_RightRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource RibbonThemeKey_RightRepeatButtonTemplate}" />
+    </Style>
+    <Style x:Key="RibbonThemeKey_LeftRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource RibbonThemeKey_LeftRepeatButtonTemplate}" />
+    </Style>
+
+    <ItemsPanelTemplate x:Key="RibbonThemeKey_ItemsPanelTemplate">
+        
+        <dxr:RibbonItemsPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" /> 
+    </ItemsPanelTemplate>
+    
+    <ControlTemplate x:Key="RibbonThemeKey_ControlTemplate" TargetType="dxr:RibbonControl">
+        <Grid VerticalAlignment="Top">
+            <ContentControl x:Name="PART_Background" Template="{StaticResource RibbonThemeKey_BackgroundTemplate}" />
+            <Grid x:Name="PART_MainLayout" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <dxr:RibbonSelectedPageControl x:Name="PART_SelectedPageControl" Grid.Row="1" Visibility="{Binding Path=IsMinimized, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource invertBoolToVisibilityConverter}}" />
+
+                <Grid Grid.Row="0">
+                    <Grid x:Name="PART_HeaderAndTabsLayout">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="AppBntWidth" Grid.Column="0" Width="{Binding Path=ActualApplicationButtonWidth, RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=ShowApplicationButton, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" />
+                        <Grid x:Name="PART_HeaderBorder" Grid.ColumnSpan="3">
+                            
+                             <ContentControl Template="{TemplateBinding ActualHeaderBorderTemplate}" /> 
+                        </Grid>
+                        <Thumb x:Name="PART_DragWidget" Grid.Row="0" Grid.ColumnSpan="3">
+                            <Thumb.Template>
+                                <ControlTemplate>
+                                    <Border Background="Transparent" BorderThickness="0" />
+                                </ControlTemplate>
+                            </Thumb.Template>
+                        </Thumb>
+                        <dxr:RibbonHeaderControl x:Name="PART_HeaderControl" ItemsSource="{Binding Path=Items, RelativeSource={RelativeSource Mode=TemplatedParent}}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" />
+                        <ContentControl Template="{StaticResource RibbonThemeKey_TabPartBorderTemplate}" Grid.Row="1" Grid.ColumnSpan="3" />
+                        <Grid x:Name="PART_Tabs" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <RepeatButton x:Name="PART_LeftRepeatButton" Grid.Column="0" Style="{StaticResource RibbonThemeKey_LeftRepeatButtonStyle}" VerticalAlignment="Bottom" Visibility="Collapsed" />
+                                
+                                <ScrollViewer x:Name="PART_ScrollViewer" Margin="0,0,0,0" Padding="0,0,0,-5" Grid.Column="1" BorderThickness="0" VerticalContentAlignment="Stretch" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="5" />
+                                        </Grid.RowDefinitions>
+                                        <ItemsPresenter Grid.Row="0" />
+                                        <dxr:RibbonPageHeaderControl x:Name="PART_OriginRibbonPageHeaderControl" Grid.Row="0" Width="0" Opacity="0" />
+                                    </Grid>
+                                </ScrollViewer>
+                                <RepeatButton x:Name="PART_RightRepeatButton" Grid.Column="2" Style="{StaticResource RibbonThemeKey_RightRepeatButtonStyle}" VerticalAlignment="Bottom" Visibility="Collapsed" />
+                            </Grid>
+                        </Grid>
+
+                        <ContentControl x:Name="PART_HeaderToolbarContainer2010" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Style="{TemplateBinding ActualHeaderQuickAccessToolbarContainerStyle}" />
+                        <ContentControl x:Name="PART_HeaderToolbarContainer" Grid.Column="1" Grid.Row="0" Style="{TemplateBinding ActualHeaderQuickAccessToolbarContainerStyle}" />
+                        <Grid Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <dxr:RibbonCheckedBorderControl x:Name="PART_MinimizationButton" IsChecked="{TemplateBinding IsMinimized}" IsEnabled="{TemplateBinding AllowMinimizeRibbon}" UseAppFocusValue="True" Visibility="{Binding Path=IsMinimizationButtonVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" Style="{StaticResource RibbonThemeKey_MinimizationButtonStyle}" Template="{StaticResource RibbonThemeKey_MinimizationButtonTemplate}" />
+                                <dxc:DXContentPresenter x:Name="PART_PageHeaderLinksControlContainer" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+
+                    <dxr:RibbonApplicationButtonControl x:Name="PART_ApplicationButton" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Style="{TemplateBinding ActualApplicationButtonStyle}" Visibility="{Binding Path=ShowApplicationButton, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" />
+                </Grid>
+
+                <ContentControl x:Name="PART_FooterToolbarContainer" HorizontalAlignment="Stretch" Grid.Row="2" Style="{StaticResource RibbonThemeKey_FooterQuickAccessToolbarContainerStyle}" Template="{StaticResource RibbonThemeKey_FooterQuickAccessToolbarContainerTemplate}" />
+
+            </Grid>
+            <Grid x:Name="PART_ErrorLayout" Visibility="Collapsed">
+                <TextBlock TextWrapping="Wrap" Text="The RibbonControl must be defined within a BarManager control." HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RibbonThemeKey_RibbonPanelBorderTemplate" TargetType="ContentControl">
+        <Border BorderThickness="1" BorderBrush="Black" Padding="3,3,3,3">
+            <Border x:Name="PART_Content">
+                <ContentPresenter Content="{TemplateBinding Content}" MinHeight="68" />
+            </Border>
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="SubMenuBarControlThemeKey_ScrollViewerStyle" TargetType="dxb:SubMenuScrollViewer">
+        
+        
+        <Setter Property="dxc:FrameworkElementHelper.IsClipped" Value="True" />
+        
+    </Style>
+    
+    <ControlTemplate x:Key="RibbonThemeKey_ApplicationMenuBarControlTemplate" TargetType="dxr:ApplicationMenuBarControl">
+        <Grid>
+            <ContentControl Template="{TemplateBinding BorderTemplate}">
+                
+                
+                <Grid Background="Transparent">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid Width="Auto" Height="Auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" UseLayoutRounding="True" Margin="{Binding Path=GlyphPadding, RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=MaxGlyphSize.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <ContentControl Grid.ColumnSpan="2" UseLayoutRounding="True" x:Name="PART_GlyphSide" Template="{StaticResource RibbonThemeKey_ApplicationMenuBackgroundTemplate}" />
+                        </Grid>
+                        <dxb:SubMenuScrollViewer Style="{StaticResource SubMenuBarControlThemeKey_ScrollViewerStyle}">
+                            <ItemsPresenter />
+                        </dxb:SubMenuScrollViewer>
+                    </Grid>
+                    <ContentControl Visibility="{Binding Path=Popup.ShowRightPane, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}" Width="{TemplateBinding RightPaneWidth}" Template="{StaticResource RibbonThemeKey_ApplicationMenuRightPaneTemplate}" Grid.Row="0" Grid.Column="1">
+                        <ContentPresenter x:Name="PART_RightPanePresenter" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="{Binding Path=Popup.RightPane, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </ContentControl>
+                    <ContentControl Template="{StaticResource RibbonThemeKey_ApplicationMenuBottomPaneTemplate}" Grid.Row="1" Grid.ColumnSpan="2">
+                        <ContentPresenter x:Name="PART_BottomPanePresenter" Content="{Binding Path=Popup.BottomPane, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </ContentControl>
+                </Grid>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="RibbonThemeKey_ApplicationMenuContentControlTemplate" TargetType="dxr:ApplicationMenuContentControl">
+        <Grid>
+            <ContentControl Template="{StaticResource RibbonThemeKey_ApplicationMenuContentControlBorderTemplate}">
+                <ContentPresenter />
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ApplicationButtonThemeKey_Template" TargetType="dxr:RibbonApplicationButtonControl">
+
+        <dxr:RibbonCheckedBorderControl x:Name="PART_Border" UseAppFocusValue="True" AppFocusValue="{Binding Path=(dxr:RibbonNavigationManager.IsSelected), RelativeSource={RelativeSource TemplatedParent}}" IsChecked="{Binding Path=IsChecked, RelativeSource={RelativeSource Mode=TemplatedParent}}" Template="{TemplateBinding BorderTemplate}" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+            <Grid>
+                <dxc:PixelSnapper HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Path=Ribbon.IsOffice2010Style, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource invertBoolToVisibilityConverter}}">
+                    <Image Source="{Binding Path=Ribbon.ActualApplicationButtonLargeIcon, RelativeSource={RelativeSource TemplatedParent}}" Stretch="None" />
+                </dxc:PixelSnapper>
+                <Grid Visibility="{Binding Path=Ribbon.IsOffice2010Style, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <dxc:PixelSnapper HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
+
+                        <Image Source="{Binding Path=Ribbon.ActualApplicationButtonSmallIcon, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,1,0,0" Stretch="None" />
+                    </dxc:PixelSnapper>
+                    <Grid Grid.Column="1" Visibility="{Binding Path=Ribbon.ActualIsApplicationButtonTextVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource boolToVisibilityConverter}}">
+                        <ContentControl Style="{StaticResource ApplicationButtonThemeKey_NormalTextStyle}" Visibility="{Binding ElementName=PART_Border, Path=IsMouseOver, Converter={StaticResource invertBoolToVisibilityConverter}}" Content="{Binding Path=Ribbon.ApplicationButtonText, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <ContentControl Style="{StaticResource ApplicationButtonThemeKey_SelectedTextStyle}" Visibility="{Binding ElementName=PART_Border, Path=IsMouseOver, Converter={StaticResource boolToVisibilityConverter}}" Content="{Binding Path=Ribbon.ApplicationButtonText, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>                        
+                </Grid>                
+            </Grid>
+        </dxr:RibbonCheckedBorderControl>
+    </ControlTemplate>
+    
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/internal" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <ControlTemplate x:Key="BarItemSeparatorThemeKey_InMenuTemplate" TargetType="dxb:BarItemLinkSeparatorControl">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Background="#00FFFFFF" Width="{Binding Path=InMenuContentOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Border Grid.Column="1" Background="#FFC5C5C5" Height="1" Margin="5,0,1,0" UseLayoutRounding="True" />
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarItemSeparatorThemeKey_Template" TargetType="dxb:BarItemLinkSeparatorControl">
+        <dxc:PixelSnapper>
+            <Grid Margin="2,4,2,4" Width="2" UseLayoutRounding="True">
+                <Rectangle Fill="#FF6690C6 " HorizontalAlignment="Left" Margin="0,0,0,1" Opacity="0.5" Stretch="Fill" Width="1" />
+                <Rectangle Fill="#FFFFFFFF " HorizontalAlignment="Right" Margin="0,1,0,0" Opacity="0.5" Stretch="Fill" Width="1" />
+            </Grid>
+        </dxc:PixelSnapper>
+    </ControlTemplate>
+
+
+</ResourceDictionary>

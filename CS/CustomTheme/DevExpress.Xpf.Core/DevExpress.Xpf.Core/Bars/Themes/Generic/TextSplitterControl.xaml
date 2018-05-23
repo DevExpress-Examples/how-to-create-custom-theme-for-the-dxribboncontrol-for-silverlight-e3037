@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxbc="http://schemas.devexpress.com/winfx/2008/xaml/bars/internal" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <dxc:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" Invert="False" />
+    <dxc:BooleanToVisibilityConverter x:Key="invertedBooleanToVisibilityConverter" Invert="True" />
+    
+    <ControlTemplate x:Key="TextSplitterControlThemeKey_Template" TargetType="dxb:TextSplitterControl">
+        <Grid>
+            <ContentControl Visibility="{Binding Path=IsUserContentVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource booleanToVisibilityConverter}}" />
+                <Grid HorizontalAlignment="Center" Visibility="{Binding Path=IsUserContentVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource invertedBooleanToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <dxc:MeasurePixelSnapper Grid.Row="0" Opacity="{TemplateBinding FirstStringOpacity}" HorizontalAlignment="{TemplateBinding FirstStringHorizontalAlignment}" Margin="{TemplateBinding FirstStringMargin}">
+                        <Grid HorizontalAlignment="Center">
+                            <ContentControl Content="Wg" Style="{TemplateBinding ActualTextStyle}" Opacity="0" HorizontalAlignment="Center" />
+                            <ContentControl Content="{TemplateBinding FirstString}" Style="{TemplateBinding ActualTextStyle}" HorizontalAlignment="Center" />
+                        </Grid>
+                    </dxc:MeasurePixelSnapper>
+                    <Grid Grid.Row="1" HorizontalAlignment="{TemplateBinding SecondStringHorizontalAlignment}">
+                        <StackPanel Orientation="Horizontal">
+                            <dxc:MeasurePixelSnapper Opacity="{TemplateBinding SecondStringOpacity}" Margin="{TemplateBinding SecondStringMargin}">
+                                <Grid HorizontalAlignment="Center">
+                                    <ContentControl Content="Wg" Style="{TemplateBinding ActualTextStyle}" Opacity="0" HorizontalAlignment="Center" />
+                                    <ContentControl Content="{TemplateBinding SecondString}" Style="{TemplateBinding ActualTextStyle}" HorizontalAlignment="Center" />
+                                </Grid>
+                            </dxc:MeasurePixelSnapper>
+                            <ContentControl Style="{TemplateBinding RightSideArrowContainerStyle}" Visibility="{Binding Path=IsRightSideArrowVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource booleanToVisibilityConverter}}">
+                                <ContentControl Template="{TemplateBinding ActualArrowTemplate}" />
+                            </ContentControl>
+        </StackPanel>
+                    </Grid>
+                    <ContentControl Style="{TemplateBinding BottomSideArrowContainerStyle}" Grid.Row="1" Visibility="{Binding Path=IsBottomSideArrowVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource booleanToVisibilityConverter}}">
+                        <ContentControl Template="{TemplateBinding ActualArrowTemplate}" />
+                    </ContentControl>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+</ResourceDictionary>

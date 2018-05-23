@@ -1,0 +1,150 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:dxbc="http://schemas.devexpress.com/winfx/2008/xaml/bars/internal" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <Style x:Key="SubMenuBarControlDefaultStyle" TargetType="dxb:SubMenuBarControl">
+        
+        <Setter Property="ItemsPanel" Value="{StaticResource SubMenuBarControlThemeKey_ItemsPanelTemplate}" />
+        <Setter Property="Template" Value="{StaticResource SubMenuBarControlThemeKey_ControlTemplate}" />
+        <Setter Property="DropIndicatorStyle" Value="{StaticResource SubMenuBarControlThemeKey_DropIndicatorStyle}" />
+        <Setter Property="GlyphPadding" Value="{StaticResource SubMenuBarControlThemeKey_GlyphPadding}" />
+        <Setter Property="MinHeight" Value="22" />
+    </Style>
+    <Style x:Key="MenuBarControlDefaultStyle" TargetType="dxb:MenuBarControl">
+        <Setter Property="Template" Value="{StaticResource MenuBarControlThemeKey_ControlTemplate}" />
+    </Style>
+
+    <Style x:Key="BarControlDefaultStyle" TargetType="dxb:BarControl">
+        
+        <Setter Property="ItemsPanel" Value="{StaticResource BarControlThemeKey_ItemsPanelTemplate}" />
+        <Setter Property="Template" Value="{StaticResource BarControlThemeKey_ControlTemplate}" />
+        <Setter Property="DropIndicatorStyle" Value="{StaticResource BarControlThemeKey_DropIndicatorStyle}" />
+        
+    </Style>
+    <Style x:Key="BarContainerControlDefaultStyle" TargetType="dxb:BarContainerControl">
+        <Setter Property="ItemsPanel" Value="{StaticResource BarContainerControlThemeKey_ItemsPanelTemplate}" />
+        <Setter Property="Template" Value="{StaticResource BarContainerControlThemeKey_ControlTemplate}" />
+        
+    </Style>
+    <Style x:Key="FloatingBarPopupDefaultStyle" TargetType="dxb:FloatingBarPopup">
+        
+        
+        <Setter Property="Placement2" Value="Relative" />
+        
+    </Style>
+    <Style x:Key="FloatingBarPopupContentControlDefaultStyle" TargetType="dxb:FloatingBarPopupContentControl">
+        <Setter Property="Template" Value="{StaticResource FloatingBarPopupThemeKey_ContentTemplate}" />
+        <Setter Property="DragWidgetStyle" Value="{StaticResource FloatingBarPopupThemeKey_DragWidgetStyle}" />
+        <Setter Property="SizeGripStyle" Value="{StaticResource FloatingBarPopupThemeKey_SizeGripStyle}" />
+        <Setter Property="CloseButtonStyle" Value="{StaticResource FloatingBarPopupThemeKey_CloseButtonStyle}" />
+        <Setter Property="QuickCustomizationButtonStyle" Value="{StaticResource FloatingBarPopupThemeKey_QuickCustomizationButtonStyle}" />
+        <Setter Property="CaptionStyle" Value="{StaticResource FloatingBarPopupThemeKey_CaptionStyle}" />
+    </Style>
+
+    <Style x:Key="ItemBorderControlDefaultStyle" TargetType="dxb:ItemBorderControl">
+        
+    </Style>
+    <Style x:Key="BarButtonItemLinkControlDefaultStyle" TargetType="dxb:BarButtonItemLinkControl">
+        
+        
+    </Style>
+    <Style x:Key="BarSubItemLinkControlDefaultStyle" TargetType="dxb:BarSubItemLinkControl">
+        
+        
+        <Setter Property="ContentToArrowIndent" Value="{StaticResource BarSubItemThemeKey_ContentToArrowIndent}" />
+    </Style>
+    <Style x:Key="BarSplitButtonItemLinkControlDefaultStyle" TargetType="dxb:BarSplitButtonItemLinkControl">
+        
+        
+    </Style>
+    <Style x:Key="BarCheckItemLinkControlDefaultStyle" TargetType="dxb:BarCheckItemLinkControl">
+        
+        
+    </Style>
+    <Style x:Key="BarEditItemLinkControlDefaultStyle" TargetType="dxb:BarEditItemLinkControl">
+        
+        
+    </Style>
+    <Style x:Key="BarStaticItemLinkControlDefaultStyle" TargetType="dxb:BarStaticItemLinkControl">
+        
+        
+    </Style>
+    <Style x:Key="BarItemLinkSeparatorControlDefaultStyle" TargetType="dxb:BarItemLinkSeparatorControl">
+        
+        <Setter Property="Background" Value="#FF7B7B7B" />
+    </Style>
+    
+    <Style x:Key="BarSplitCheckItemLinkControlDefaultStyle" TargetType="dxb:BarSplitCheckItemLinkControl">
+        
+        
+    </Style>
+    
+
+    <Style x:Key="BarItemDragElementContentDefaultStyle" TargetType="dxbc:BarItemDragElementContent">
+        <Setter Property="Template" Value="{StaticResource CustomizationThemeKey_DragElementTemplate}" />
+    </Style>
+    <Style x:Key="BarDragElementPopupDefaultStyle" TargetType="dxbc:BarDragElementPopup">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        
+        
+        <Setter Property="Placement2" Value="Relative" />
+        
+        <Setter Property="CursorOffset" Value="8,8" />
+    </Style>
+
+    <Style x:Key="BarPopupBaseDefaultStyle" TargetType="dxb:BarPopupBase">
+        
+        <Setter Property="MinWidth" Value="80" />
+    </Style>
+    <Style x:Key="PopupContainerDefaultStyle" TargetType="dxb:PopupContainer">
+        <Setter Property="Template" Value="{StaticResource PopupControlContainerThemeKey_ControlTemplate}" />
+    </Style>
+    <Style x:Key="BarPopupBorderControlDefaultStyle" TargetType="dxb:BarPopupBorderControl">
+        <Setter Property="Template" Value="{StaticResource PopupControlContainerThemeKey_BorderTemplate}" />
+        
+    </Style>
+
+    
+
+    <Style x:Key="GalleryControlDefaultStyle" TargetType="dxb:GalleryControl">
+        <Setter Property="Template" Value="{StaticResource GalleryControlThemeKey_StandaloneControlTemplate}" />
+        <Setter Property="DefaultItemMargin" Value="{StaticResource GalleryItemControlThemeKey_DefaultItemMargin}" />
+        <Setter Property="DefaultItemGlyphMargin" Value="{StaticResource GalleryItemControlThemeKey_DefaultGlyphMargin}" />
+        <Setter Property="DefaultItemCaptionMargin" Value="{StaticResource GalleryItemControlThemeKey_DefaultCaptionMargin}" />
+        <Setter Property="DefaultItemDescriptionMargin" Value="{StaticResource GalleryItemControlThemeKey_DefaultDescriptionMargin}" />
+        <Setter Property="DefaultGroupCaptionMargin" Value="{StaticResource GalleryItemGroupControlThemeKey_DefaultGroupCaptionMargin}" />
+        <Setter Property="DefaultGroupItemsMargin" Value="{StaticResource GalleryItemGroupControlThemeKey_DefaultGroupItemsMargin}" />
+        <Setter Property="ItemCaptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultItemCaptionTextStyle}" />
+        <Setter Property="ItemDescriptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultItemDescriptionTextStyle}" />
+        <Setter Property="GroupCaptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultGroupCaptionTextStyle}" />
+        <Setter Property="NormalFilterCaptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultNormalFilterCaptionTextStyle}" />
+        <Setter Property="SelectedFilterCaptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultSelectedFilterCaptionTextStyle}" />
+        <Setter Property="HintTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultHintTextStyle}" />
+        <Setter Property="HintCaptionTextStyle" Value="{StaticResource GalleryItemControlThemeKey_DefaultHintCaptionTextStyle}" />
+        <Setter Property="DefaultItemGlyphBorderTemplate" Value="{StaticResource GalleryItemControlThemeKey_StandaloneGlyphBorderTemplate}" />
+        <Setter Property="DefaultItemBorderTemplate" Value="{StaticResource GalleryItemControlThemeKey_StandaloneBorderTemplate}" />
+        <Setter Property="DefaultItemControlTemplate" Value="{StaticResource GalleryItemControlThemeKey_DefaultControlTemplate}" />
+        <Setter Property="DefaultItemGlyphBorderPadding" Value="{StaticResource GalleryItemControlThemeKey_DefaultGlyphBorderPadding}" />
+        <Setter Property="DefaultGroupCaptionControlTemplate" Value="{StaticResource GalleryItemGroupControlThemeKey_CaptionTemplate}" />
+        <Setter Property="DefaultFilterControlTemplate" Value="{StaticResource GalleryControlThemeKey_StandaloneCaptionTemplate}" />
+    </Style>
+    <Style x:Key="GalleryItemControlDefaultStyle" TargetType="dxb:GalleryItemControl">
+        
+    </Style>
+    <Style x:Key="GalleryItemGroupControlDefaultStyle" TargetType="dxb:GalleryItemGroupControl">
+        
+        <Setter Property="ItemsPanel" Value="{StaticResource GalleryItemGroupControlThemeKey_ItemsPanelTemplate}" />
+        <Setter Property="Template" Value="{StaticResource GalleryItemGroupControlThemeKey_ControlTemplate}" />
+        
+    </Style>
+    <Style x:Key="GalleryItemGroupsControlDefaultStyle" TargetType="dxb:GalleryItemGroupsControl">
+        <Setter Property="Template" Value="{StaticResource GalleryItemGroupsControlThemeKey_ControlTemplate}" />
+        <Setter Property="ItemsPanel" Value="{StaticResource GalleryItemGroupsControlThemeKey_ItemsPanelTemplate}" />
+    </Style>
+    <Style x:Key="GalleryItemHoverToolTipDefaultStyle" TargetType="dxb:GalleryItemHoverToolTip">
+        <Setter Property="Template" Value="{StaticResource GalleryItemControlThemeKey_HoverToolTipTemplate}" />
+    </Style>
+
+    
+    <Style x:Key="TextSplitterControlDefaultStyle" TargetType="dxb:TextSplitterControl">
+        <Setter Property="Template" Value="{StaticResource TextSplitterControlThemeKey_Template}" />
+    </Style>
+</ResourceDictionary>

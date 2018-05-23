@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="CustomRibbonSLTheme.MainPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"         
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"        
+    xmlns:local="clr-namespace:CustomRibbonSLTheme"      
+    d:DesignHeight="273" d:DesignWidth="633">
+
+    <dxb:BarManager>
+        <dxb:BarManager.Items>
+            <dxb:BarButtonItem x:Name="biButton" Content="Button" LargeGlyph="images/LargeGlyph.png" Glyph="images/SmallGlyph.png">
+            </dxb:BarButtonItem>
+        </dxb:BarManager.Items>
+        <StackPanel>
+            <dxr:RibbonControl x:Name="ribbon">
+                <dxr:RibbonDefaultPageCategory>
+                    <dxr:RibbonPage Caption="Home">
+                        <dxr:RibbonPageGroup Caption="Home group">
+                            <dxr:RibbonPageGroup.ItemLinks>
+                                <dxb:BarItemLink BarItemName="biButton" />
+                            </dxr:RibbonPageGroup.ItemLinks>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+
+        </StackPanel>
+    </dxb:BarManager>
+</UserControl>

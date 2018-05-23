@@ -1,0 +1,110 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/internal" xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <sys:Double x:Key="BarSubItemThemeKey_ContentToArrowIndent">3.0</sys:Double>
+    
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplate" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="#00FFFFFF ">
+            <Border x:Name="arrow" Background="#00FFFFFF " HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Height="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="5">
+                    <Path UseLayoutRounding="True" Data="F1 M 69,15L 74,15L 74,16.0001L 73,16.0001L 73,17.0001L 72,17.0001L 72,18.0001L 71,18.0001L 71,17.0001L 70,17.0001L 70,16.0001L 69,16.0001L 69,15 Z " Fill="#FFFFFFFF " Margin="0,1,0,0" Opacity="0.35" Stretch="Fill" />
+                    <Path UseLayoutRounding="True" Data="F1 M 69,15L 74,15L 74,16.0001L 73,16.0001L 73,17.0001L 72,17.0001L 72,18.0001L 71,18.0001L 71,17.0001L 70,17.0001L 70,16.0001L 69,16.0001L 69,15 Z " Fill="#FF567db1 " Margin="0,0,0,1" Stretch="Fill" />
+                </Grid>
+            </Border>
+        </Grid>
+        
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInMainMenu" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="#00FFFFFF ">
+            <Border x:Name="arrow" Background="#00FFFFFF " HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Path x:Name="path" Data="F1 M 1324,808L 1321,811 1318,808 1324,808z " Fill="#FF000000 " Height="3" HorizontalAlignment="Center" Margin="0,1,0,0" UseLayoutRounding="True" Stretch="Fill" VerticalAlignment="Center" Width="6" />
+            </Border>
+        </Grid>
+        
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInMenu" TargetType="dxb:BarSubItemArrowControl">
+        <Path Data="F1 M 1340,804L 1344,808L 1340,812L 1340,804 Z " Margin="3,0,3,0" Fill="#FF000000 " HorizontalAlignment="Center" VerticalAlignment="Center" Height="8" Stretch="Fill" Width="4" />
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInStatusBar" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="#00FFFFFF ">
+            <Border x:Name="arrow" Background="#00FFFFFF " HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Path x:Name="path" Data="F1 M 1324,808L 1321,811 1318,808 1324,808z " Fill="#FF000000 " Height="3" HorizontalAlignment="Center" Margin="0,1,0,0" UseLayoutRounding="True" Stretch="Fill" VerticalAlignment="Center" Width="6" />
+            </Border>
+        </Grid>
+        
+    </ControlTemplate>        
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInRibbonPageGroup" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="Transparent" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,1,0,0" Width="Auto" Height="4">
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FFcdcdcd " Data="F1 M 3.05176e-005,1L 3.05176e-005,2L 1,2.00003L 1,3.00003L 2,3.00003L 2,4.00003L 3,4.00003L 3,3.00003L 4,3.00003L 4,2.00003L 5,2.00003L 5,1.00003L 3.05176e-005,1 Z " Margin="0,1,0,0" />
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FF678cbd " Data="F1 M 0,0L 0,1L 0.999969,1L 0.999969,2L 1.99997,2L 1.99997,3L 2.99997,3L 2.99997,2L 3.99997,2L 3.99997,1L 4.99997,1L 4.99997,0L 0,0 Z " Margin="0,0,0,1" />
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="ArrowAlignment">
+                    <VisualState x:Name="Right" />
+                    <VisualState x:Name="Bottom" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInRibbonQuickAccessToolbar" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="Transparent" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,1,0,0" Width="Auto" Height="4">
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FFcdcdcd " Data="F1 M 3.05176e-005,1L 3.05176e-005,2L 1,2.00003L 1,3.00003L 2,3.00003L 2,4.00003L 3,4.00003L 3,3.00003L 4,3.00003L 4,2.00003L 5,2.00003L 5,1.00003L 3.05176e-005,1 Z " Margin="0,1,0,0" />
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FF678cbd " Data="F1 M 0,0L 0,1L 0.999969,1L 0.999969,2L 1.99997,2L 1.99997,3L 2.99997,3L 2.99997,2L 3.99997,2L 3.99997,1L 4.99997,1L 4.99997,0L 0,0 Z " Margin="0,0,0,1" />
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="ArrowAlignment">
+                    <VisualState x:Name="Right" />
+                    <VisualState x:Name="Bottom" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>    
+    <ControlTemplate x:Key="BarSubItemThemeKey_ArrowTemplateInRibbonStatusBarRight" TargetType="dxb:BarSubItemArrowControl">
+        <Grid Background="Transparent" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,1,0,0" Width="Auto" Height="4">
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FFcdcdcd " Data="F1 M 3.05176e-005,1L 3.05176e-005,2L 1,2.00003L 1,3.00003L 2,3.00003L 2,4.00003L 3,4.00003L 3,3.00003L 4,3.00003L 4,2.00003L 5,2.00003L 5,1.00003L 3.05176e-005,1 Z " Margin="0,1,0,0" />
+                <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FF678cbd " Data="F1 M 0,0L 0,1L 0.999969,1L 0.999969,2L 1.99997,2L 1.99997,3L 2.99997,3L 2.99997,2L 3.99997,2L 3.99997,1L 4.99997,1L 4.99997,0L 0,0 Z " Margin="0,0,0,1" />
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="ArrowAlignment">
+                    <VisualState x:Name="Right" />
+                    <VisualState x:Name="Bottom" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="BarSubItemThemeKey_TextSplitterStyleInRibbonPageGroup" TargetType="dxb:TextSplitterControl">
+        <Setter Property="FirstStringHorizontalAlignment" Value="Center" />
+        <Setter Property="SecondStringHorizontalAlignment" Value="Center" />
+        <Setter Property="SecondStringMargin" Value="0,-3,0,0" />
+        <Setter Property="Margin" Value="0,-2,0,0" />
+    </Style>
+    <ControlTemplate x:Key="BarSubItemThemeKey_NormalArrowTemplateInTextSplitter" TargetType="ContentControl">
+        <Grid UseLayoutRounding="True" Margin="0,1,0,0" Width="Auto" Height="4">
+            <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FFcdcdcd " Data="F1 M 3.05176e-005,1L 3.05176e-005,2L 1,2.00003L 1,3.00003L 2,3.00003L 2,4.00003L 3,4.00003L 3,3.00003L 4,3.00003L 4,2.00003L 5,2.00003L 5,1.00003L 3.05176e-005,1 Z " Margin="0,1,0,0" />
+            <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FF678cbd " Data="F1 M 0,0L 0,1L 0.999969,1L 0.999969,2L 1.99997,2L 1.99997,3L 2.99997,3L 2.99997,2L 3.99997,2L 3.99997,1L 4.99997,1L 4.99997,0L 0,0 Z " Margin="0,0,0,1" />
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="BarSubItemThemeKey_SelectedArrowTemplateInTextSplitter" TargetType="ContentControl">
+        <Grid UseLayoutRounding="True" Margin="0,1,0,0" Width="Auto" Height="4">
+            <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FFcdcdcd " Data="F1 M 3.05176e-005,1L 3.05176e-005,2L 1,2.00003L 1,3.00003L 2,3.00003L 2,4.00003L 3,4.00003L 3,3.00003L 4,3.00003L 4,2.00003L 5,2.00003L 5,1.00003L 3.05176e-005,1 Z " Margin="0,1,0,0" />
+            <Path UseLayoutRounding="True" Width="Auto" Height="Auto" Stretch="Fill" Fill="#FF678cbd " Data="F1 M 0,0L 0,1L 0.999969,1L 0.999969,2L 1.99997,2L 1.99997,3L 2.99997,3L 2.99997,2L 3.99997,2L 3.99997,1L 4.99997,1L 4.99997,0L 0,0 Z " Margin="0,0,0,1" />
+        </Grid>
+    </ControlTemplate>
+    
+    <Style x:Key="BarSubItemThemeKey_SelectedTextStyleInTextSplitter" TargetType="ContentControl">
+        <Setter Property="Foreground" Value="#FF15428b " />
+    </Style>
+    <Style x:Key="BarSubItemThemeKey_NormalTextStyleInTextSplitter" TargetType="ContentControl">
+        <Setter Property="Foreground" Value="#FF15428b " />
+    </Style>
+    <Style x:Key="BarSubItemThemeKey_BottomSideArrowContainerStyleInTextSplitter" TargetType="ContentControl">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="BarSubItemThemeKey_RightSideArrowContainerStyleInTextSplitter" TargetType="ContentControl">
+        <Setter Property="Margin" Value="2,0,0,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>
