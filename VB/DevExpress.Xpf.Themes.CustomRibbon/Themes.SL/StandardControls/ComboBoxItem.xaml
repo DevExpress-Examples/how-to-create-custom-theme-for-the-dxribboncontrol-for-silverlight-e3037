@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--BEGIN WPF-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="SharedResources.xaml" />
+        <ResourceDictionary Source="ListBoxItem.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!--END WPF-->
+
+    <Style TargetType="ComboBoxItem" BasedOn="{StaticResource ListBoxItemStyle}" />
+
+</ResourceDictionary>

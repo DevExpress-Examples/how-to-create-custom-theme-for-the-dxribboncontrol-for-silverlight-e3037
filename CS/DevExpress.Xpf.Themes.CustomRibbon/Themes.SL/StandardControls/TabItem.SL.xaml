@@ -1,0 +1,253 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+    <Thickness x:Key="TabItem.Padding">11,3,11,3</Thickness>
+
+    <Thickness x:Key="TabItem.TopPadding">11,3,11,2</Thickness>
+
+    <Thickness x:Key="TabItem.BottomPadding">11,2,11,3</Thickness>
+
+    <Thickness x:Key="TabItem.DefaultState.Root.Margin">0</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Top.Root.Margin">0,-2,-1,0</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Top.Item.Padding">1,1,1,0</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Top.Item.Margin">0,0,0,-1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Bottom.Root.Margin">0,0,-1,-2</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Bottom.Item.Padding">1,0,1,1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Bottom.Item.Margin">0,-1,0,0</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Left.Root.Margin">-2,0,0,-1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Left.Item.Padding">1,1,0,1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Left.Item.Margin">0,0,-1,0</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Right.Root.Margin">0,0,-2,-1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Right.Item.Padding">0,1,1,1</Thickness>
+
+    <Thickness x:Key="TabItem.SelectedState.Right.Item.Margin">-1,0,0,0</Thickness>
+
+    <SolidColorBrush x:Key="Text.Foreground" Color="#FF000000" />
+
+    <SolidColorBrush x:Key="TabItem.BorderBrush" Color="#FF898C95" />
+    <LinearGradientBrush x:Key="TabItem.Background" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFF2F2F2" Offset="0" />
+        <GradientStop Color="#FFEBEBEB" Offset="1" />
+        <GradientStop Color="#FFDDDDDD" Offset="0.5" />
+        <GradientStop Color="#FFCFCFCF" Offset="0.5" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItem.HighlightedBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFCFCFC" Offset="0" />
+        <GradientStop Color="#FFF3F3F3" Offset="1" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TabItem.HoverState.Border" Color="#FF3C7FB1" />
+
+    <LinearGradientBrush x:Key="TabItem.HoverState.HighlightedBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFAFDFE" Offset="0" />
+        <GradientStop Color="#FFE9F5FC" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItem.HoverState.Background" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFEAF6FD" Offset="0" />
+        <GradientStop Color="#FFA7D9F5" Offset="1" />
+        <GradientStop Color="#FFD9F0FC" Offset="0.5" />
+        <GradientStop Color="#FFBEE6FD" Offset="0.5" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TabItem.SelectedState.Border" Color="#FF898C95" />
+
+    <SolidColorBrush x:Key="TabItem.SelectedState.Background" Color="#FFFFFFFF" />
+
+    <LinearGradientBrush x:Key="TabItem.FocusedState.Top" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFCBEBFD" Offset="0" />
+        <GradientStop Color="#00CBEBFD" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItem.FocusedState.Bottom" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#00CBEBFD" Offset="0" />
+        <GradientStop Color="#FFCBEBFD" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItem.FocusedState.Left" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFA8D9F5" Offset="0" />
+        <GradientStop Color="#00CBEBFD" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItem.FocusedState.Right" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#00CBEBFD" Offset="0" />
+        <GradientStop Color="#FFCBEBFD" Offset="1" />
+    </LinearGradientBrush>
+
+    <Style TargetType="sdk:TabItem">
+        <Setter Property="BorderBrush" Value="{StaticResource TabItem.BorderBrush}" />
+        <Setter Property="Background" Value="{StaticResource TabItem.Background}" />
+        <Setter Property="Foreground" Value="{StaticResource Text.Foreground}" />
+        <Setter Property="Padding" Value="{StaticResource TabItem.Padding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="MinWidth" Value="4" />
+        <Setter Property="MinHeight" Value="4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:TabItem">
+                    <Grid x:Name="Root">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverStateTop" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="HoverStateBottom" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="HoverStateLeft" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="HoverStateRight" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0.35" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="Selected" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusedStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateTop" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateBottom" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateLeft" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateRight" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="TemplateTopSelected" Margin="0,-2,-1,0" Canvas.ZIndex="1" Visibility="Collapsed">
+                            <Grid x:Name="SelectedStateTop">
+                                <Border x:Name="SelectedStateBorderTop" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Top.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}">
+                                    <Border Background="{StaticResource TabItem.SelectedState.Background}">
+                                        <Border x:Name="FocusedStateTop" Background="{StaticResource TabItem.FocusedState.Top}" Margin="1" Opacity="0" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderTopSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateTopUnselected" Margin="0,0,-1,0" Visibility="Collapsed">
+                            <Grid x:Name="DefaultStateTop">
+                                <Border x:Name="DefaultStateBorderTop" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}">
+                                    <Border x:Name="DefaultStateHighlightedBorderTop" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}">
+                                        <Border Background="{TemplateBinding Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <Grid x:Name="HoverStateTop" Opacity="0">
+                                <Border x:Name="HoverStateBordeTopr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}">
+                                    <Border x:Name="HoverStateHighlightedBorderTop" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}">
+                                        <Border Background="{StaticResource TabItem.HoverState.Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderTopUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateBottomSelected" Margin="0,0,-1,-2" Canvas.ZIndex="1" Visibility="Collapsed">
+                            <Grid x:Name="SelectedStateBottom">
+                                <Border x:Name="SelectedStateBorderBottom" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Bottom.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}">
+                                    <Border Background="{StaticResource TabItem.SelectedState.Background}">
+                                        <Border x:Name="FocusedStateBottom" Background="{StaticResource TabItem.FocusedState.Bottom}" Margin="1" Opacity="0" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderBottomSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateBottomUnselected" Margin="0,0,-1,0" Visibility="Collapsed">
+                            <Grid x:Name="DefaultStateBottom">
+                                <Border x:Name="DefaultStateBorderBottom" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}">
+                                    <Border x:Name="DefaultStateHighlightedBorderBottom" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}">
+                                        <Border Background="{TemplateBinding Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <Grid x:Name="HoverStateBottom" Opacity="0">
+                                <Border x:Name="HoverStateBordeBottomr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}">
+                                    <Border x:Name="HoverStateHighlightedBorderBottom" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}">
+                                        <Border Background="{StaticResource TabItem.HoverState.Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderBottomUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateLeftSelected" Margin="-2,0,0,-1" Canvas.ZIndex="1" Visibility="Collapsed">
+                            <Grid x:Name="SelectedStateLeft">
+                                <Border x:Name="SelectedStateBorderLeft" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Left.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}">
+                                    <Border Background="{StaticResource TabItem.SelectedState.Background}">
+                                        <Border x:Name="FocusedStateLeft" Background="{StaticResource TabItem.FocusedState.Left}" Margin="1" Opacity="0" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderLeftSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateLeftUnselected" Margin="0,0,0,-1" Visibility="Collapsed">
+                            <Grid x:Name="DefaultStateLeft">
+                                <Border x:Name="DefaultStateBorderLeft" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}">
+                                    <Border x:Name="DefaultStateHighlightedBorderLeft" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}">
+                                        <Border Background="{TemplateBinding Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <Grid x:Name="HoverStateLeft" Opacity="0">
+                                <Border x:Name="HoverStateBordeLeftr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}">
+                                    <Border x:Name="HoverStateHighlightedBorderLeft" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}">
+                                        <Border Background="{StaticResource TabItem.HoverState.Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderLeftUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateRightSelected" Margin="0,0,-2,-1" Canvas.ZIndex="1" Visibility="Collapsed">
+                            <Grid x:Name="SelectedStateRight">
+                                <Border x:Name="SelectedStateBorderRight" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Right.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}">
+                                    <Border Background="{StaticResource TabItem.SelectedState.Background}">
+                                        <Border x:Name="FocusedStateRight" Background="{StaticResource TabItem.FocusedState.Right}" Margin="1" Opacity="0" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderRightSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                        <Grid x:Name="TemplateRightUnselected" Margin="0,0,0,-1" Visibility="Collapsed">
+                            <Grid x:Name="DefaultStateRight">
+                                <Border x:Name="DefaultStateBorderRight" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}">
+                                    <Border x:Name="DefaultStateHighlightedBorderRight" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}">
+                                        <Border Background="{TemplateBinding Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <Grid x:Name="HoverStateRight" Opacity="0">
+                                <Border x:Name="HoverStateBordeRightr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}">
+                                    <Border x:Name="HoverStateHighlightedBorderRight" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}">
+                                        <Border Background="{StaticResource TabItem.HoverState.Background}" />
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <ContentControl x:Name="HeaderRightUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

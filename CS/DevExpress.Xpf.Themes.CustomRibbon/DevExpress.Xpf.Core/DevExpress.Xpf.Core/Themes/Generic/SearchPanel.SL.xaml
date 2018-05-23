@@ -1,0 +1,69 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxci="http://schemas.devexpress.com/winfx/2008/xaml/core/internal" xmlns:themes="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <!--SearchPanel-->
+    <Style TargetType="dxci:SearchPanel">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="dxci:SearchPanel">
+                    <ContentControl Template="{StaticResource SearchPanelThemeKey_BorderControlTemplate}" UseLayoutRounding="True">
+                        <ContentControl.Resources>
+                            <dxc:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+                        </ContentControl.Resources>
+
+                        <Grid UseLayoutRounding="True">
+                            <StackPanel Orientation="Horizontal" UseLayoutRounding="True">
+                                <TextBlock Text="{TemplateBinding FindLabelText}" Style="{StaticResource SearchPanelThemeKey_PanelTextBlockStyle}" UseLayoutRounding="True" />
+
+                                <dxe:ButtonEdit x:Name="tbSearchString" Width="150" FontSize="13" Margin="0,0,4,0" IsTextEditable="True" EditValue="{Binding SearchString, Mode=TwoWay}" AllowNullInput="False" AllowDefaultButton="False" UseLayoutRounding="True" />
+
+                                <StackPanel x:Name="ReplaceBox" Orientation="Horizontal" Visibility="{Binding ReplaceMode, Converter={StaticResource boolToVisibilityConverter}}" UseLayoutRounding="True">
+
+                                    <TextBlock Text="{TemplateBinding ReplaceLabelText}" Style="{StaticResource SearchPanelThemeKey_PanelTextBlockStyle}" UseLayoutRounding="True" />
+
+                                    <dxe:ButtonEdit x:Name="tbReplaceString" Width="150" FontSize="13" Margin="0,0,8,0" IsTextEditable="True" EditValue="{Binding ReplaceString, Mode=TwoWay}" AllowNullInput="False" AllowDefaultButton="False" UseLayoutRounding="True" />
+                                </StackPanel>
+
+                                <ContentControl Template="{StaticResource SearchPanelThemeKey_SeparatorControlTemplate}" UseLayoutRounding="True" />
+
+                                <Button x:Name="SearchOptionsButton" Style="{StaticResource SearchPanelThemeKey_OptionsButtonStyle}" Padding="0">
+                                    
+                                    <ContentPresenter ContentTemplate="{StaticResource SearchPanelThemeKey_OptionsButtonShape}" UseLayoutRounding="True" />
+                                </Button>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" UseLayoutRounding="True">
+                                <StackPanel x:Name="ReplaceButtons" Orientation="Horizontal" Visibility="{Binding ReplaceMode, Converter={StaticResource boolToVisibilityConverter}}" UseLayoutRounding="True">
+
+                                    <Button x:Name="ReplaceButton" Style="{StaticResource SearchPanelThemeKey_ReplaceButtonStyle}" CommandParameter="{Binding Path=CommandParameter, RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding ReplaceForwardCommand}" UseLayoutRounding="True">
+                                        <TextBlock Text="{TemplateBinding ReplaceButtonText}" Style="{StaticResource SearchPanelThemeKey_ButtonTextBlockStyle}" UseLayoutRounding="True" />
+                                    </Button>
+
+                                    <Button x:Name="ReplaceAllButton" Style="{StaticResource SearchPanelThemeKey_ReplaceAllButtonStyle}" CommandParameter="{Binding Path=CommandParameter, RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding ReplaceAllForwardCommand}" UseLayoutRounding="True">
+                                        <TextBlock Text="{TemplateBinding ReplaceAllButtonText}" Style="{StaticResource SearchPanelThemeKey_ButtonTextBlockStyle}" UseLayoutRounding="True" />
+                                    </Button>
+                                </StackPanel>
+
+                                <Button x:Name="FindPrevButton" Style="{StaticResource SearchPanelThemeKey_FindPrevButtonStyle}" CommandParameter="{Binding Path=CommandParameter, RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding FindBackwardCommand}" UseLayoutRounding="True" Padding="0">
+                                    
+                                    <ContentPresenter ContentTemplate="{StaticResource SearchPanelThemeKey_FindPrevButtonShape}" UseLayoutRounding="True" />
+                                </Button>
+
+                                <Button x:Name="FindNextButton" Style="{StaticResource SearchPanelThemeKey_FindNextButtonStyle}" CommandParameter="{Binding Path=CommandParameter, RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding FindForwardCommand}" UseLayoutRounding="True" Padding="0">
+                                    
+                                    <ContentPresenter ContentTemplate="{StaticResource SearchPanelThemeKey_FindNextButtonShape}" UseLayoutRounding="True" />
+                                </Button>
+
+                                <ContentControl Template="{StaticResource SearchPanelThemeKey_SeparatorControlTemplate}" UseLayoutRounding="True" />
+
+                                <Button x:Name="SearchClose" Style="{StaticResource SearchPanelThemeKey_CloseButtonStyle}" Command="{Binding CloseCommand}" UseLayoutRounding="True" Padding="0">
+                                    
+                                    <ContentPresenter ContentTemplate="{StaticResource SearchPanelThemeKey_CloseButtonShape}" UseLayoutRounding="True" />
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ContentControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

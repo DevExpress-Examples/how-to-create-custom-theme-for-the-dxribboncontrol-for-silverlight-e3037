@@ -1,0 +1,35 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxef="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    
+
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Core.v11.1;component/Editors/Themes/FilterControl.Default.SL.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+
+    <Style TargetType="dxef:FilterControl">
+        <Setter Property="Template" Value="{StaticResource FilterControlThemeKey_CustomRibbon_FilterControlTemplate}" />
+        <Setter Property="EmptyValueTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_EmptyValueTemplate}" />
+        <Setter Property="EmptyStringTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_EmptyStringTemplate}" />
+        <Setter Property="ValueTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_ValueTemplate}" />
+        <Setter Property="BooleanValueTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_BooleanValueTemplate}" />
+        
+    </Style>
+
+    <Style TargetType="dxef:FilterControlGroupNode">
+        <Setter Property="Template" Value="{StaticResource FilterControlThemeKey_CustomRibbon_FilterControlGroupNodeTemplate}" />
+    </Style>
+
+    <Style TargetType="dxef:FilterControlClauseNode">
+        <Setter Property="Template" Value="{StaticResource FilterControlThemeKey_CustomRibbon_FilterControlClauseNodeTemplate}" />
+        <Setter Property="SecondOperandsOneTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_OneElementsInSecondOperandTemplate}" />
+        <Setter Property="SecondOperandsTwoTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_TwoElementsInSecondOperandTemplate}" />
+        <Setter Property="SecondOperandsSeveralTemplate" Value="{StaticResource FilterControlThemeKey_CustomRibbon_SeveralElementsInSecondOperandTemplate}" />
+    </Style>
+
+    <Style TargetType="dxef:FilterControlEditor">
+        <Setter Property="Template" Value="{StaticResource FilterControlThemeKey_CustomRibbon_FilterControlEditorTemplate}" />
+    </Style>
+
+</ResourceDictionary>

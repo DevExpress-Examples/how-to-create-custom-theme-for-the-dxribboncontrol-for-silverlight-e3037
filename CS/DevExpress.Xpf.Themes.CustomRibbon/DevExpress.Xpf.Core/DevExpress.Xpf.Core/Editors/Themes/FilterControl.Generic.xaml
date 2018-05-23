@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxef="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <!--BEGIN WPF-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/Generic/FilterControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!--END WPF-->
+
+    <!--ONLY SL
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Core.v11.1;component/Editors/Themes/FilterControl.Default.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    ONLY SL-->
+
+    <Style x:Key="{dxdst:DefaultStyleThemeKey ThemeName=CustomRibbon, FullName=DevExpress.Xpf.Editors.Filtering.FilterControl}" TargetType="{x:Type dxef:FilterControl}">
+        <Setter Property="Template" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=FilterControlTemplate}}" />
+        <Setter Property="EmptyValueTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=EmptyValueTemplate}}" />
+        <Setter Property="EmptyStringTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=EmptyStringTemplate}}" />
+        <Setter Property="ValueTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=ValueTemplate}}" />
+        <Setter Property="BooleanValueTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=BooleanValueTemplate}}" />
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=FocusVisualStyle}}" />
+    </Style>
+
+    <Style x:Key="{dxdst:DefaultStyleThemeKey ThemeName=CustomRibbon, FullName=DevExpress.Xpf.Editors.Filtering.FilterControlGroupNode}" TargetType="{x:Type dxef:FilterControlGroupNode}">
+        <Setter Property="Template" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=FilterControlGroupNodeTemplate}}" />
+    </Style>
+
+    <Style x:Key="{dxdst:DefaultStyleThemeKey ThemeName=CustomRibbon, FullName=DevExpress.Xpf.Editors.Filtering.FilterControlClauseNode}" TargetType="{x:Type dxef:FilterControlClauseNode}">
+        <Setter Property="Template" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=FilterControlClauseNodeTemplate}}" />
+        <Setter Property="SecondOperandsOneTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=OneElementsInSecondOperandTemplate}}" />
+        <Setter Property="SecondOperandsTwoTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=TwoElementsInSecondOperandTemplate}}" />
+        <Setter Property="SecondOperandsSeveralTemplate" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=SeveralElementsInSecondOperandTemplate}}" />
+    </Style>
+
+    <Style x:Key="{dxdst:DefaultStyleThemeKey ThemeName=CustomRibbon, FullName=DevExpress.Xpf.Editors.Filtering.FilterControlEditor}" TargetType="{x:Type dxef:FilterControlEditor}">
+        <Setter Property="Template" Value="{DynamicResource {dxet:FilterControlThemeKey ThemeName=CustomRibbon, ResourceKey=FilterControlEditorTemplate}}" />
+    </Style>
+
+</ResourceDictionary>

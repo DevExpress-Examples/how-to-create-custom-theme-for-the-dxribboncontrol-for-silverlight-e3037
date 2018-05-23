@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Themes/StandardControlStyles.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ButtonEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/SpinEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/CheckEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ComboBoxEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/MemoEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ColorChooser.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ErrorPresenter.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/PopupBaseEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/PopupListBox.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/TextEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/DateEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ListBoxEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/FilterControl.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/FilterPanelControlBase.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/TrackBarEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ProgressBarEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/PasswordBoxEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ColorEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/CalcEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/ImageEdit.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Editors/Themes/CustomRibbon/DateNavigator.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

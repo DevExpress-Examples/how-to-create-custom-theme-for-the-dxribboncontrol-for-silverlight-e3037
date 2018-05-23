@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Themes/StandardControls/Brushes.SL.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Themes/StandardControls/SharedResources.SL.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="ListBoxItem">
+        
+        <Setter Property="Background" Value="{StaticResource ListBoxItem.Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ListBoxItem.BorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ListBoxItem.Foreground}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="Padding" Value="3,2,3,2" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Grid UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Border x:Name="ListBoxItemSelection" Background="{StaticResource ListBoxItem.Selection.Border1}" CornerRadius="3" Padding="1" Opacity="0">
+                            <Border Background="{StaticResource ListBoxItem.Selection.Border2}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource ListBoxItem.Selection.Border3}" CornerRadius="1" />
+                            </Border>
+                        </Border>
+                        <Border x:Name="ListBoxItemInactiveSelection" Background="{StaticResource ListBoxItem.InactiveSelection.Border1}" CornerRadius="3" Padding="1" Opacity="0">
+                            <Border Background="{StaticResource ListBoxItem.InactiveSelection.Border2}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource ListBoxItem.InactiveSelection.Border3}" CornerRadius="1" />
+                            </Border>
+                        </Border>
+                        <Border x:Name="ListBoxItemHoverSelection" Background="{StaticResource ListBoxItem.HoverSelection.Border1}" CornerRadius="3" Padding="1" Opacity="0">
+                            <Border Background="{StaticResource ListBoxItem.HoverSelection.Border2}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource ListBoxItem.HoverSelection.Border3}" CornerRadius="1" />
+                            </Border>
+                        </Border>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
