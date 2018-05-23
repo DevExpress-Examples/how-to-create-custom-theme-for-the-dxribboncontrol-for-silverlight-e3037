@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core/Themes/StandardControls/Brushes.SL.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Separator">
+        <Setter Property="Background" Value="{StaticResource Separator.BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Separator.BorderBrush}" />
+        <Setter Property="BorderThickness" Value="0,1,0,0" />
+        <Setter Property="MinHeight" Value="2" />
+        <Setter Property="MinWidth" Value="2" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Border Background="{TemplateBinding BorderBrush}" BorderBrush="{TemplateBinding BorderBrush}" Margin="{TemplateBinding Margin}" MinHeight="{TemplateBinding MinHeight}" MinWidth="{TemplateBinding MinWidth}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

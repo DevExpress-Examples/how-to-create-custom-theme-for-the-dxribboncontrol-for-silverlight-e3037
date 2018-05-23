@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:dxdst="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys">
+
+    <ControlTemplate x:Key="SuperTipThemeKey_ItemTemplate" TargetType="dx:SuperTipItemControl">
+        <dx:Items2Panel Style="{TemplateBinding ActualLayoutStyle}">
+            <dx:Items2Panel.Content1>
+                <dx:PixelSnapper>
+                    <Image x:Name="PART_Glyph" Source="{Binding Path=Item.Glyph, RelativeSource={RelativeSource TemplatedParent}}" />
+                </dx:PixelSnapper>
+            </dx:Items2Panel.Content1>
+            <dx:Items2Panel.Content2>
+                <ContentControl x:Name="PART_Content" Foreground="{TemplateBinding Foreground}" Style="{TemplateBinding ContentStyle}" Content="{Binding Path=Item.Content, RelativeSource={RelativeSource TemplatedParent}}" ContentTemplate="{TemplateBinding ActualContentTemplate}" />
+                
+            </dx:Items2Panel.Content2>
+        </dx:Items2Panel>
+    </ControlTemplate>
+
+    
+
+    <Style TargetType="dx:SuperTipItemControl">
+        <Setter Property="ContentStyle" Value="{StaticResource SuperTipThemeKey_ItemContentStyle}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource SuperTipThemeKey_ItemContentTemplate}" />
+        <Setter Property="Template" Value="{StaticResource SuperTipThemeKey_ItemTemplate}" />
+        <Setter Property="LayoutStyle" Value="{StaticResource SuperTipThemeKey_ItemLayoutStyle}" />
+    </Style>
+
+    <Style TargetType="dx:SuperTipItemControlSeparator">
+        
+        <Setter Property="Template" Value="{StaticResource SuperTipThemeKey_SeparatorTemplate}" />
+    </Style>
+
+    <Style TargetType="dx:SuperTipHeaderItemControl">
+        <Setter Property="ContentStyle" Value="{StaticResource SuperTipThemeKey_HeaderContentStyle}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource SuperTipThemeKey_HeaderContentTemplate}" />
+        <Setter Property="Template" Value="{StaticResource SuperTipThemeKey_ItemTemplate}" />
+        <Setter Property="LayoutStyle" Value="{StaticResource SuperTipThemeKey_HeaderLayoutStyle}" />
+    </Style>
+
+    <ItemsPanelTemplate x:Key="SuperTipThemeKey_PanelTemplate">
+        <dx:SuperTipPanel />
+    </ItemsPanelTemplate>
+
+    <ControlTemplate x:Key="SuperTipThemeKey_Template" TargetType="dx:SuperTipControl">
+        <ContentControl Template="{StaticResource SuperTipThemeKey_BorderTemplate}">
+            <ItemsPresenter />
+        </ContentControl>
+    </ControlTemplate>
+
+    <Style TargetType="dx:SuperTipControl">
+        <Setter Property="Template" Value="{StaticResource SuperTipThemeKey_Template}" />
+        <Setter Property="ItemsPanel" Value="{StaticResource SuperTipThemeKey_PanelTemplate}" />
+    </Style>    
+    
+</ResourceDictionary>

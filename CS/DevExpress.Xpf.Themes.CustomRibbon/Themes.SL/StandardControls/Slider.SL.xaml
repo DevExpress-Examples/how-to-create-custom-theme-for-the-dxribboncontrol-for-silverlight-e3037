@@ -1,0 +1,149 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+
+    <Style x:Key="SliderThumbStyle" TargetType="Thumb">
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Height" Value="22" />
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DefaultState" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HoverState" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PressedState" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledState" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                        <Grid x:Name="DefaultState" Opacity="0">
+                            <Border Background="{StaticResource SliderThumb.DefaultState.Border1.Background}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource SliderThumb.DefaultState.Border2.Background}" CornerRadius="1" Padding="1">
+                                    <Border Background="{StaticResource SliderThumb.DefaultState.Border3.Background}" CornerRadius="0" />
+                                </Border>
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="HoverState" Opacity="0">
+                            <Border Background="{StaticResource SliderThumb.HoverState.Border1.Background}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource SliderThumb.HoverState.Border2.Background}" CornerRadius="1" Padding="1">
+                                    <Border Background="{StaticResource SliderThumb.HoverState.Border3.Background}" CornerRadius="0" />
+                                </Border>
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="PressedState" Opacity="0">
+                            <Border Background="{StaticResource SliderThumb.PressedState.Border1.Background}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource SliderThumb.PressedState.Border2.Background}" CornerRadius="1" Padding="1">
+                                    <Border Background="{StaticResource SliderThumb.PressedState.Border3.Background}" CornerRadius="0" />
+                                </Border>
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="DisabledState" Opacity="0">
+                            <Border Background="{StaticResource SliderThumb.DisabledState.Border1.Background}" CornerRadius="2" Padding="1">
+                                <Border Background="{StaticResource SliderThumb.DisabledState.Border2.Background}" CornerRadius="1" Padding="1">
+                                    <Border Background="{StaticResource SliderThumb.DisabledState.Border3.Background}" CornerRadius="0" />
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Slider">
+        <Setter Property="IsTabStop" Value="True" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Maximum" Value="10" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Value" Value="0" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid x:Name="Root">
+                        <Grid.Resources>
+                            <ControlTemplate x:Key="RepeatButtonTemplate">
+                                <Grid x:Name="Root" Background="Transparent" Opacity="0" />
+                            </ControlTemplate>
+                        </Grid.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Disabled">
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusedStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusStateHorizontal" Duration="0" To="0.35" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusStateVertical" Duration="0" To="0.35" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <!-- Horizontal Template -->
+                        <Grid x:Name="HorizontalTemplate" Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Track Layer -->
+                            <Border x:Name="FocusStateHorizontal" Height="6" Margin="-1,0,-1,0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource SliderFocusTemplate}" Opacity="0" />
+                            <Border Background="{StaticResource Slider.Track.Background}" BorderBrush="{StaticResource Slider.Track.Horizontal.BorderBrush}" BorderThickness="1" Height="4" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" />
+
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeDecreaseRepeatButton" Height="22" Grid.Column="0" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                            <Thumb x:Name="HorizontalThumb" Width="12" Height="22" Grid.Column="1" IsTabStop="False" Style="{StaticResource SliderThumbStyle}" />
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeIncreaseRepeatButton" Height="22" Grid.Column="2" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                        </Grid>
+
+                        <!-- Vertical Template -->
+                        <Grid x:Name="VerticalTemplate" Visibility="Collapsed" Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Track Layer -->
+                            <Border x:Name="FocusStateVertical" Width="6" Margin="0,-1,0,-1" Grid.Row="0" Grid.RowSpan="3" Style="{StaticResource SliderFocusTemplate}" Opacity="0" />
+                            <Border Background="{StaticResource Slider.Track.Background}" BorderBrush="{StaticResource Slider.Track.Vertical.BorderBrush}" BorderThickness="1" Width="4" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="3" />
+
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" Width="22" IsTabStop="False" Grid.Row="2" Template="{StaticResource RepeatButtonTemplate}" />
+                            <Thumb x:Name="VerticalThumb" Width="22" Height="12" IsTabStop="False" Grid.Row="1" Style="{StaticResource SliderThumbStyle}" />
+                            <RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" Width="22" IsTabStop="False" Grid.Row="0" Template="{StaticResource RepeatButtonTemplate}" />
+                        </Grid>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,223 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:dxcore_unique_xmlns="http://schemas.devexpress.com/winfx/2008/xaml/core">
+  <Thickness x:Key="TabItem.Padding">11,3,11,3</Thickness>
+  <Thickness x:Key="TabItem.TopPadding">11,3,11,2</Thickness>
+  <Thickness x:Key="TabItem.BottomPadding">11,2,11,3</Thickness>
+  <Thickness x:Key="TabItem.DefaultState.Root.Margin">0</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Top.Root.Margin">0,-2,-1,0</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Top.Item.Padding">1,1,1,0</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Top.Item.Margin">0,0,0,-1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Bottom.Root.Margin">0,0,-1,-2</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Bottom.Item.Padding">1,0,1,1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Bottom.Item.Margin">0,-1,0,0</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Left.Root.Margin">-2,0,0,-1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Left.Item.Padding">1,1,0,1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Left.Item.Margin">0,0,-1,0</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Right.Root.Margin">0,0,-2,-1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Right.Item.Padding">0,1,1,1</Thickness>
+  <Thickness x:Key="TabItem.SelectedState.Right.Item.Margin">-1,0,0,0</Thickness>
+  <SolidColorBrush x:Key="Text.Foreground" Color="#FF000000" />
+  <SolidColorBrush x:Key="TabItem.BorderBrush" Color="#FF898C95" />
+  <LinearGradientBrush x:Key="TabItem.Background" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#FFF2F2F2" Offset="0" />
+    <GradientStop Color="#FFEBEBEB" Offset="1" />
+    <GradientStop Color="#FFDDDDDD" Offset="0.5" />
+    <GradientStop Color="#FFCFCFCF" Offset="0.5" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="TabItem.HighlightedBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#FFFCFCFC" Offset="0" />
+    <GradientStop Color="#FFF3F3F3" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="TabItem.HoverState.Border" Color="#FF3C7FB1" />
+  <LinearGradientBrush x:Key="TabItem.HoverState.HighlightedBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#FFFAFDFE" Offset="0" />
+    <GradientStop Color="#FFE9F5FC" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="TabItem.HoverState.Background" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#FFEAF6FD" Offset="0" />
+    <GradientStop Color="#FFA7D9F5" Offset="1" />
+    <GradientStop Color="#FFD9F0FC" Offset="0.5" />
+    <GradientStop Color="#FFBEE6FD" Offset="0.5" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="TabItem.SelectedState.Border" Color="#FF898C95" />
+  <SolidColorBrush x:Key="TabItem.SelectedState.Background" Color="#FFFFFFFF" />
+  <LinearGradientBrush x:Key="TabItem.FocusedState.Top" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#FFCBEBFD" Offset="0" />
+    <GradientStop Color="#00CBEBFD" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="TabItem.FocusedState.Bottom" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="#00CBEBFD" Offset="0" />
+    <GradientStop Color="#FFCBEBFD" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="TabItem.FocusedState.Left" EndPoint="1,0.5" StartPoint="0,0.5">
+    <GradientStop Color="#FFA8D9F5" Offset="0" />
+    <GradientStop Color="#00CBEBFD" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="TabItem.FocusedState.Right" EndPoint="1,0.5" StartPoint="0,0.5">
+    <GradientStop Color="#00CBEBFD" Offset="0" />
+    <GradientStop Color="#FFCBEBFD" Offset="1" />
+  </LinearGradientBrush>
+  <Style TargetType="sdk:TabItem">
+    <Setter Property="BorderBrush" Value="{StaticResource TabItem.BorderBrush}" />
+    <Setter Property="Background" Value="{StaticResource TabItem.Background}" />
+    <Setter Property="Foreground" Value="{StaticResource Text.Foreground}" />
+    <Setter Property="Padding" Value="{StaticResource TabItem.Padding}" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="MinWidth" Value="4" />
+    <Setter Property="MinHeight" Value="4" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="sdk:TabItem">
+          <Grid x:Name="Root" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;102;22">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualStateGroup.Transitions>
+                  <VisualTransition GeneratedDuration="0" />
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="MouseOver">
+                  <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="HoverStateTop" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                    <DoubleAnimation Storyboard.TargetName="HoverStateBottom" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                    <DoubleAnimation Storyboard.TargetName="HoverStateLeft" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                    <DoubleAnimation Storyboard.TargetName="HoverStateRight" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0.35" />
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="Unselected" />
+                <VisualState x:Name="Selected" />
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="FocusedStates">
+                <VisualState x:Name="Focused">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateTop" Storyboard.TargetProperty="Opacity" To="1" />
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateBottom" Storyboard.TargetProperty="Opacity" To="1" />
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateLeft" Storyboard.TargetProperty="Opacity" To="1" />
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedStateRight" Storyboard.TargetProperty="Opacity" To="1" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid x:Name="TemplateTopSelected" Margin="0,-2,-1,0" Canvas.ZIndex="1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;139;26">
+              <Grid x:Name="SelectedStateTop" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;140;30">
+                <Border x:Name="SelectedStateBorderTop" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Top.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;141;34">
+                  <Border Background="{StaticResource TabItem.SelectedState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;142;38">
+                    <Border x:Name="FocusedStateTop" Background="{StaticResource TabItem.FocusedState.Top}" Margin="1" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;143;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderTopSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;147;30" />
+            </Grid>
+            <Grid x:Name="TemplateTopUnselected" Margin="0,0,-1,0" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;149;26">
+              <Grid x:Name="DefaultStateTop" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;150;30">
+                <Border x:Name="DefaultStateBorderTop" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;151;34">
+                  <Border x:Name="DefaultStateHighlightedBorderTop" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;152;38">
+                    <Border Background="{TemplateBinding Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;153;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <Grid x:Name="HoverStateTop" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;157;30">
+                <Border x:Name="HoverStateBordeTopr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;158;34">
+                  <Border x:Name="HoverStateHighlightedBorderTop" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Top.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;159;38">
+                    <Border Background="{StaticResource TabItem.HoverState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;160;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderTopUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;164;30" />
+            </Grid>
+            <Grid x:Name="TemplateBottomSelected" Margin="0,0,-1,-2" Canvas.ZIndex="1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;166;26">
+              <Grid x:Name="SelectedStateBottom" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;167;30">
+                <Border x:Name="SelectedStateBorderBottom" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Bottom.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;168;34">
+                  <Border Background="{StaticResource TabItem.SelectedState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;169;38">
+                    <Border x:Name="FocusedStateBottom" Background="{StaticResource TabItem.FocusedState.Bottom}" Margin="1" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;170;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderBottomSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;174;30" />
+            </Grid>
+            <Grid x:Name="TemplateBottomUnselected" Margin="0,0,-1,0" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;176;26">
+              <Grid x:Name="DefaultStateBottom" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;177;30">
+                <Border x:Name="DefaultStateBorderBottom" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;178;34">
+                  <Border x:Name="DefaultStateHighlightedBorderBottom" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;179;38">
+                    <Border Background="{TemplateBinding Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;180;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <Grid x:Name="HoverStateBottom" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;184;30">
+                <Border x:Name="HoverStateBordeBottomr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;185;34">
+                  <Border x:Name="HoverStateHighlightedBorderBottom" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Bottom.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;186;38">
+                    <Border Background="{StaticResource TabItem.HoverState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;187;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderBottomUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;191;30" />
+            </Grid>
+            <Grid x:Name="TemplateLeftSelected" Margin="-2,0,0,-1" Canvas.ZIndex="1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;193;26">
+              <Grid x:Name="SelectedStateLeft" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;194;30">
+                <Border x:Name="SelectedStateBorderLeft" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Left.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;195;34">
+                  <Border Background="{StaticResource TabItem.SelectedState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;196;38">
+                    <Border x:Name="FocusedStateLeft" Background="{StaticResource TabItem.FocusedState.Left}" Margin="1" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;197;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderLeftSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;201;30" />
+            </Grid>
+            <Grid x:Name="TemplateLeftUnselected" Margin="0,0,0,-1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;203;26">
+              <Grid x:Name="DefaultStateLeft" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;204;30">
+                <Border x:Name="DefaultStateBorderLeft" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;205;34">
+                  <Border x:Name="DefaultStateHighlightedBorderLeft" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;206;38">
+                    <Border Background="{TemplateBinding Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;207;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <Grid x:Name="HoverStateLeft" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;211;30">
+                <Border x:Name="HoverStateBordeLeftr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;212;34">
+                  <Border x:Name="HoverStateHighlightedBorderLeft" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Left.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;213;38">
+                    <Border Background="{StaticResource TabItem.HoverState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;214;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderLeftUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;218;30" />
+            </Grid>
+            <Grid x:Name="TemplateRightSelected" Margin="0,0,-2,-1" Canvas.ZIndex="1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;220;26">
+              <Grid x:Name="SelectedStateRight" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;221;30">
+                <Border x:Name="SelectedStateBorderRight" Background="{StaticResource TabItem.SelectedState.Border}" Margin="{StaticResource TabItem.SelectedState.Right.Item.Margin}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;222;34">
+                  <Border Background="{StaticResource TabItem.SelectedState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;223;38">
+                    <Border x:Name="FocusedStateRight" Background="{StaticResource TabItem.FocusedState.Right}" Margin="1" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;224;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderRightSelected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;228;30" />
+            </Grid>
+            <Grid x:Name="TemplateRightUnselected" Margin="0,0,0,-1" Visibility="Collapsed" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;230;26">
+              <Grid x:Name="DefaultStateRight" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;231;30">
+                <Border x:Name="DefaultStateBorderRight" Background="{TemplateBinding BorderBrush}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;232;34">
+                  <Border x:Name="DefaultStateHighlightedBorderRight" Background="{StaticResource TabItem.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;233;38">
+                    <Border Background="{TemplateBinding Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;234;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <Grid x:Name="HoverStateRight" Opacity="0" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;238;30">
+                <Border x:Name="HoverStateBordeRightr" Background="{StaticResource TabItem.HoverState.Border}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;239;34">
+                  <Border x:Name="HoverStateHighlightedBorderRight" Background="{StaticResource TabItem.HoverState.HighlightedBorder}" Padding="{StaticResource TabItem.SelectedState.Right.Item.Padding}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;240;38">
+                    <Border Background="{StaticResource TabItem.HoverState.Background}" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;241;42" />
+                  </Border>
+                </Border>
+              </Grid>
+              <ContentControl x:Name="HeaderRightUnselected" Margin="{StaticResource TabItem.Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Cursor="{TemplateBinding Cursor}" IsTabStop="False" dxcore_unique_xmlns:BlendHelper2.ThemeInfo="Themes.SL\StandardControls\TabItem.SL.xaml;245;30" />
+            </Grid>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

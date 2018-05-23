@@ -1,0 +1,530 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
+
+    
+
+    <Style TargetType="ScrollBar">
+        <Setter Property="MinWidth" Value="17" />
+        <Setter Property="MinHeight" Value="17" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Grid x:Name="Root">
+                        <Grid.Resources>
+
+                            <!-- RepeatButton Templates -->
+                            <ControlTemplate x:Key="RepeatButtonTemplate" TargetType="RepeatButton">
+                                <Grid x:Name="Root" Background="Transparent">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" />
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Grid>
+                            </ControlTemplate>
+
+                            <!-- Horizontal Inc/Dec Templates -->
+                            <ControlTemplate x:Key="HorizontalIncrementTemplate" TargetType="RepeatButton">
+                                <Grid x:Name="Root">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="PressedState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                    <Grid x:Name="DefaultState">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 0 L 0 8 L 4 4 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 0 L 0 8 L 4 4 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="HoverState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Data="M 0 0 L 0 8 L 4 4 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Data="M 0 0 L 0 8 L 4 4 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="PressedState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Data="M 0 0 L 0 8 L 4 4 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Data="M 0 0 L 0 8 L 4 4 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                            <ControlTemplate x:Key="HorizontalDecrementTemplate" TargetType="RepeatButton">
+                                <Grid x:Name="Root">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="PressedState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                    <Grid x:Name="DefaultState">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 4 L 4 8 L 4 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 4 L 4 8 L 4 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="HoverState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Data="M 0 4 L 4 8 L 4 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Data="M 0 4 L 4 8 L 4 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="PressedState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border3}" CornerRadius="0">
+                                                    <Grid Width="6" Height="10">
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Data="M 0 4 L 4 8 L 4 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Data="M 0 4 L 4 8 L 4 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+
+                            <!-- Vertical Inc/Dec Templates -->
+                            <ControlTemplate x:Key="VerticalIncrementTemplate" TargetType="RepeatButton">
+                                <Grid x:Name="Root">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="PressedState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                    <Grid x:Name="DefaultState">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 0 L 3.5 4 L 7 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 0 L 3.5 4 L 7 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="HoverState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Data="M 0 0 L 3.5 4 L 7 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Data="M 0 0 L 3.5 4 L 7 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="PressedState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Data="M 0 0 L 3.5 4 L 7 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Data="M 0 0 L 3.5 4 L 7 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                            <ControlTemplate x:Key="VerticalDecrementTemplate" TargetType="RepeatButton">
+                                <Grid x:Name="Root">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="PressedState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                    <Grid x:Name="DefaultState">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 4 L 7 4 L 3.5 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 4 L 7 4 L 3.5 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="HoverState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Data="M 0 4 L 7 4 L 3.5 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Data="M 0 4 L 7 4 L 3.5 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                    <Grid x:Name="PressedState" Opacity="0">
+                                        <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border3}" CornerRadius="0">
+                                                    <Grid Width="10" Height="6">
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Data="M 0 4 L 7 4 L 3.5 0 Z" />
+                                                        <Path Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Data="M 0 4 L 7 4 L 3.5 0 Z" Margin="1" />
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+
+                            <!-- Thumb Templates -->
+                            <ControlTemplate x:Key="VerticalThumbTemplate" TargetType="Thumb">
+                                <Grid>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DraggingState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Grid x:Name="Root">
+                                        <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                        <Grid x:Name="DefaultState">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Vertical.DefaultState.Border3}" CornerRadius="0">
+                                                        <Grid Height="10" Width="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Top" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="1,4" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Bottom" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                        <Grid x:Name="HoverState" Opacity="0">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Vertical.HoverState.Border3}" CornerRadius="0">
+                                                        <Grid Height="10" Width="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Top" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="1,4" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Bottom" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                        <Grid x:Name="DraggingState" Opacity="0">
+                                            <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Vertical.DraggingState.Border3}" CornerRadius="0">
+                                                        <Grid Height="10" Width="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Top" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="1,4" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="1" Height="2" VerticalAlignment="Bottom" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                            <ControlTemplate x:Key="HorizontalThumbTemplate" TargetType="Thumb">
+                                <Grid>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DefaultState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="DraggingState" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Grid x:Name="Root">
+                                        <Border x:Name="Shadow" Background="{StaticResource Shadow.Background}" CornerRadius="2" Margin="1,1,-1,-1" Opacity="0.10" />
+                                        <Grid x:Name="DefaultState">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Horizontal.DefaultState.Border3}" CornerRadius="0">
+                                                        <Grid Height="9" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle x:Name="BackPath" Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle x:Name="Path1" Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="1,1,0,1" Width="2" HorizontalAlignment="Left" />
+                                                            <Rectangle x:Name="Path2" Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="4,1" />
+                                                            <Rectangle x:Name="Path3" Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Stretch="Fill" Margin="0,1,1,1" Width="2" HorizontalAlignment="Right" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                        <Grid x:Name="HoverState" Opacity="0">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Horizontal.HoverState.Border3}" CornerRadius="0">
+                                                        <Grid Height="9" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="1,1,0,1" Width="2" HorizontalAlignment="Left" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="4,1" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.HoverState.Path.Background}" Stretch="Fill" Margin="0,1,1,1" Width="2" HorizontalAlignment="Right" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                        <Grid x:Name="DraggingState" Opacity="0">
+                                            <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border1}" CornerRadius="2" Padding="1">
+                                                <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border2}" CornerRadius="1" Padding="1">
+                                                    <Border Background="{StaticResource ScrollBar.Horizontal.DraggingState.Border3}" CornerRadius="0">
+                                                        <Grid Height="9" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.BorderBrush}" Stretch="Fill" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="1,1,0,1" Width="2" HorizontalAlignment="Left" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="4,1" />
+                                                            <Rectangle Fill="{StaticResource ScrollBar.DraggingState.Path.Background}" Stretch="Fill" Margin="0,1,1,1" Width="2" HorizontalAlignment="Right" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+
+                        </Grid.Resources>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.25" To="MouseOver" />
+                                    <VisualTransition GeneratedDuration="0:0:0.25" From="MouseOver" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HorizontalSmallDecrease" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="HorizontalSmallIncrease" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="VerticalSmallDecrease" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="VerticalSmallIncrease" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" Duration="0" To="0.5" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <!-- Horizontal Template -->
+                        <Grid x:Name="HorizontalRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Track Layer -->
+                            <Border Background="{StaticResource ScrollBar.Horizontal.PageButton.Background}" Grid.ColumnSpan="5" />
+
+                            <Grid x:Name="HorizontalSmallDecreasePath" Width="6" Height="10" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Column="0">
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 4 L 4 8 L 4 0 Z" />
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 4 L 4 8 L 4 0 Z" Margin="1" />
+                            </Grid>
+                            <Grid x:Name="HorizontalSmallIncreasePath" Width="6" Height="10" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Column="4">
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 0 L 0 8 L 4 4 Z" />
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 0 L 0 8 L 4 4 Z" Margin="1" />
+                            </Grid>
+
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="HorizontalSmallDecrease" Width="16" Margin="1" Grid.Column="0" Interval="50" IsTabStop="False" Template="{StaticResource HorizontalDecrementTemplate}" Opacity="0" />
+                            <RepeatButton x:Name="HorizontalLargeDecrease" Width="0" Grid.Column="1" Interval="50" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                            <Thumb x:Name="HorizontalThumb" Background="{TemplateBinding Background}" MinWidth="16" Width="16" Margin="0,1,0,1" Grid.Column="2" Template="{StaticResource HorizontalThumbTemplate}" />
+                            <RepeatButton x:Name="HorizontalLargeIncrease" Grid.Column="3" Interval="50" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                            <RepeatButton x:Name="HorizontalSmallIncrease" Width="16" Margin="1" Grid.Column="4" Interval="50" IsTabStop="False" Template="{StaticResource HorizontalIncrementTemplate}" Opacity="0" />
+
+                        </Grid>
+
+                        <!-- Vertical Template -->
+                        <Grid x:Name="VerticalRoot" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Track Layer -->
+                            <Border Background="{StaticResource ScrollBar.Vertical.PageButton.Background}" Grid.RowSpan="5" />
+
+                            <Grid x:Name="VerticalSmallDecreasePath" Width="10" Height="6" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="0">
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 4 L 7 4 L 3.5 0 Z" />
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 4 L 7 4 L 3.5 0 Z" Margin="1" />
+                            </Grid>
+                            <Grid x:Name="VerticalSmallIncreasePath" Width="10" Height="6" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="4">
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.BorderBrush}" Data="M 0 0 L 3.5 4 L 7 0 Z" />
+                                <Path Fill="{StaticResource ScrollBar.DefaultState.Path.Background}" Data="M 0 0 L 3.5 4 L 7 0 Z" Margin="1" />
+                            </Grid>
+
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="VerticalSmallDecrease" Height="16" Margin="1" Grid.Row="0" Interval="50" IsTabStop="False" Template="{StaticResource VerticalDecrementTemplate}" Opacity="0" />
+                            <RepeatButton x:Name="VerticalLargeDecrease" Height="0" Grid.Row="1" Interval="50" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                            <Thumb x:Name="VerticalThumb" MinHeight="16" Height="16" Margin="1,0,1,0" Grid.Row="2" Template="{StaticResource VerticalThumbTemplate}" />
+                            <RepeatButton x:Name="VerticalLargeIncrease" Grid.Row="3" Interval="50" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" />
+                            <RepeatButton x:Name="VerticalSmallIncrease" Height="16" Margin="1" Grid.Row="4" Interval="50" IsTabStop="False" Template="{StaticResource VerticalIncrementTemplate}" Opacity="0" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

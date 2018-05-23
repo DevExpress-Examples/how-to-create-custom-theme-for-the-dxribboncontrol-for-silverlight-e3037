@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/DevExpress.Xpf.Core.Silverlight.xaml" />
+        <ResourceDictionary Source="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Core/Generic.SL/Generic.xaml" />
+        <dx:ProductResourceDictionary ProductType="DevExpress.Xpf.Printing.DocumentPreviewControl" ProductAssembly="DevExpress.Xpf.Printing" ProductSource="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Printing/CustomRibbon.SL.xaml" />
+        <dx:ProductResourceDictionary ProductAssembly="DevExpress.Xpf.Ribbon" ProductSource="/DevExpress.Xpf.Themes.CustomRibbon.v11.1;component/DevExpress.Xpf.Ribbon/CustomRibbon.SL.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
